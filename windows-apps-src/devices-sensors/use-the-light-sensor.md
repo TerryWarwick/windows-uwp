@@ -12,8 +12,8 @@ ms.localizationpriority: medium
 
 **Important APIs**
 
--   [**Windows.Devices.Sensors**](https://msdn.microsoft.com/library/windows/apps/BR206408)
--   [**LightSensor**](https://msdn.microsoft.com/library/windows/apps/BR225790)
+-   [**Windows.Devices.Sensors**](/uwp/api/Windows.Devices.Sensors)
+-   [**LightSensor**](/uwp/api/Windows.Devices.Sensors.LightSensor)
 
 **Sample**
 
@@ -57,7 +57,7 @@ This section is divided into two subsections. The first subsection will take you
     using Windows.UI.Core; // Required to access the core dispatcher object
     using Windows.Devices.Sensors; // Required to access the sensor platform and the ALS
 
-    // The Blank Page item template is documented at http://go.microsoft.com/fwlink/p/?linkid=234238
+    // The Blank Page item template is documented at https://go.microsoft.com/fwlink/p/?linkid=234238
 
     namespace App1
     {

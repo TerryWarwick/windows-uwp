@@ -11,21 +11,21 @@ ms.localizationpriority: medium
 
 **Important APIs**
 
--   [**FileOpenPicker**](https://msdn.microsoft.com/library/windows/apps/br207847)
--   [**FolderPicker**](https://msdn.microsoft.com/library/windows/apps/br207881)
--   [**StorageFile**](https://msdn.microsoft.com/library/windows/apps/br227171)
+-   [**FileOpenPicker**](/uwp/api/Windows.Storage.Pickers.FileOpenPicker)
+-   [**FolderPicker**](/uwp/api/Windows.Storage.Pickers.FolderPicker)
+-   [**StorageFile**](/uwp/api/Windows.Storage.StorageFile)
 
-Access files and folders by letting the user interact with a picker. You can use the [**FileOpenPicker**](https://msdn.microsoft.com/library/windows/apps/br207847) and [**FileSavePicker**](https://msdn.microsoft.com/library/windows/apps/br207871) classes to access files, and the [**FolderPicker**](https://msdn.microsoft.com/library/windows/apps/br207881) to access a folder.
+Access files and folders by letting the user interact with a picker. You can use the [**FileOpenPicker**](/uwp/api/Windows.Storage.Pickers.FileOpenPicker) and [**FileSavePicker**](/uwp/api/Windows.Storage.Pickers.FileSavePicker) classes to access files, and the [**FolderPicker**](/uwp/api/Windows.Storage.Pickers.FolderPicker) to access a folder.
 
 > [!NOTE]
-> For a complete sample, see the [File picker sample](http://go.microsoft.com/fwlink/p/?linkid=619994).
+> For a complete sample, see the [File picker sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/FilePicker).
 
 ## Prerequisites
 
 
 -   **Understand async programming for Universal Windows Platform (UWP) apps**
 
-    You can learn how to write asynchronous apps in C# or Visual Basic, see [Call asynchronous APIs in C# or Visual Basic](https://msdn.microsoft.com/library/windows/apps/mt187337). To learn how to write asynchronous apps in C++, see [Asynchronous programming in C++](https://msdn.microsoft.com/library/windows/apps/mt187334).
+    You can learn how to write asynchronous apps in C# or Visual Basic, see [Call asynchronous APIs in C# or Visual Basic](../threading-async/call-asynchronous-apis-in-csharp-or-visual-basic.md). To learn how to write asynchronous apps in C++, see [Asynchronous programming in C++](../threading-async/asynchronous-programming-in-cpp-universal-windows-platform-apps.md).
 
 -   **Access permissions to the location**
 
@@ -49,9 +49,9 @@ An email app might display a file picker for the user to pick attachments.
 ## How pickers work
 
 
-With a picker your app can access, browse, and save files and folders on the user's system. Your app receives those picks as [**StorageFile**](https://msdn.microsoft.com/library/windows/apps/br227171) and [**StorageFolder**](https://msdn.microsoft.com/library/windows/apps/br227230) objects, which you can then operate on.
+With a picker your app can access, browse, and save files and folders on the user's system. Your app receives those picks as [**StorageFile**](/uwp/api/Windows.Storage.StorageFile) and [**StorageFolder**](/uwp/api/Windows.Storage.StorageFolder) objects, which you can then operate on.
 
-The picker uses a single, unified interface to let the user pick files and folders from the file system or from other apps. Files picked from other apps are like files from the file system: they are returned as [**StorageFile**](https://msdn.microsoft.com/library/windows/apps/br227171) objects. In general, your app can operate on them in the same ways as other objects. Other apps make files available by participating in file picker contracts. If you want your app to provide files, a save location, or file updates to other apps, see [Integrating with file picker contracts](https://msdn.microsoft.com/library/windows/apps/hh465192).
+The picker uses a single, unified interface to let the user pick files and folders from the file system or from other apps. Files picked from other apps are like files from the file system: they are returned as [**StorageFile**](/uwp/api/Windows.Storage.StorageFile) objects. In general, your app can operate on them in the same ways as other objects. Other apps make files available by participating in file picker contracts. If you want your app to provide files, a save location, or file updates to other apps, see [Integrating with file picker contracts](/previous-versions/windows/apps/hh465192(v=win.10)).
 
 For example, you might call the file picker in your app so that your user can open a file. This makes your app the calling app. The file picker interacts with the system and/or other apps to let the user navigate and pick the file. When your user chooses a file, the file picker returns that file to your app. Here's the process for the case of the user choosing a file from a providing app, such as OneDrive.
 
@@ -97,13 +97,13 @@ Using a file picker involves creating and customizing a file picker object, and 
     ```
     Set properties on the file picker object relevant to your users and app.
 
-    This example creates a rich, visual display of pictures in a convenient location that the user can pick from by setting three properties: [**ViewMode**](https://msdn.microsoft.com/library/windows/apps/br207855), [**SuggestedStartLocation**](https://msdn.microsoft.com/library/windows/apps/br207854), and [**FileTypeFilter**](https://msdn.microsoft.com/library/windows/apps/br207850).
+    This example creates a rich, visual display of pictures in a convenient location that the user can pick from by setting three properties: [**ViewMode**](/uwp/api/windows.storage.pickers.fileopenpicker.viewmode), [**SuggestedStartLocation**](/uwp/api/windows.storage.pickers.fileopenpicker.suggestedstartlocation), and [**FileTypeFilter**](/uwp/api/windows.storage.pickers.fileopenpicker.filetypefilter).
 
-    -   Setting [**ViewMode**](https://msdn.microsoft.com/library/windows/apps/br207855) to the [**PickerViewMode**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.storage.pickers.pickerviewmode.aspx#thumbnail) **Thumbnail** enum value creates a rich, visual display by using picture thumbnails to represent files in the file picker. Do this for picking visual files such as pictures or videos. Otherwise, use [**PickerViewMode.List**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.storage.pickers.pickerviewmode.aspx#list). A hypothetical email app with **Attach Picture or Video** and **Attach Document** features would set the **ViewMode** appropriate to the feature before showing the file picker.
+    -   Setting [**ViewMode**](/uwp/api/windows.storage.pickers.fileopenpicker.viewmode) to the [**PickerViewMode**](/uwp/api/Windows.Storage.Pickers.PickerViewMode) **Thumbnail** enum value creates a rich, visual display by using picture thumbnails to represent files in the file picker. Do this for picking visual files such as pictures or videos. Otherwise, use [**PickerViewMode.List**](/uwp/api/Windows.Storage.Pickers.PickerViewMode). A hypothetical email app with **Attach Picture or Video** and **Attach Document** features would set the **ViewMode** appropriate to the feature before showing the file picker.
 
-    -   Setting [**SuggestedStartLocation**](https://msdn.microsoft.com/library/windows/apps/br207854) to Pictures using [**PickerLocationId.PicturesLibrary**](https://msdn.microsoft.com/library/windows/apps/br207890) starts the user in a location where they're likely to find pictures. Set **SuggestedStartLocation** to a location appropriate for the type of file being picked, for example Music, Pictures, Videos, or Documents. From the start location, the user can navigate to other locations.
+    -   Setting [**SuggestedStartLocation**](/uwp/api/windows.storage.pickers.fileopenpicker.suggestedstartlocation) to Pictures using [**PickerLocationId.PicturesLibrary**](/uwp/api/Windows.Storage.Pickers.PickerLocationId) starts the user in a location where they're likely to find pictures. Set **SuggestedStartLocation** to a location appropriate for the type of file being picked, for example Music, Pictures, Videos, or Documents. From the start location, the user can navigate to other locations.
 
-    -   Using [**FileTypeFilter**](https://msdn.microsoft.com/library/windows/apps/br207850) to specify file types keeps the user focused on picking files that are relevant. To replace previous file types in the **FileTypeFilter** with new entries, use [**ReplaceAll**](https://msdn.microsoft.com/library/windows/apps/br207844) instead of [**Add**](https://msdn.microsoft.com/library/windows/apps/br207834).
+    -   Using [**FileTypeFilter**](/uwp/api/windows.storage.pickers.fileopenpicker.filetypefilter) to specify file types keeps the user focused on picking files that are relevant. To replace previous file types in the **FileTypeFilter** with new entries, use [**ReplaceAll**](/uwp/api/windows.storage.pickers.fileextensionvector.replaceall) instead of [**Add**](/uwp/api/windows.storage.pickers.fileextensionvector.append).
 
 2.  **Show the FileOpenPicker**
 
@@ -167,4 +167,4 @@ else
 ```
 
 > [!TIP]
-> Whenever your app accesses a file or folder through a picker, add it to your app's [**FutureAccessList**](https://msdn.microsoft.com/library/windows/apps/br207457) or [**MostRecentlyUsedList**](https://msdn.microsoft.com/library/windows/apps/br207458) to keep track of it. You can learn more about using these lists in [How to track recently-used files and folders](how-to-track-recently-used-files-and-folders.md).
+> Whenever your app accesses a file or folder through a picker, add it to your app's [**FutureAccessList**](/uwp/api/windows.storage.accesscache.storageapplicationpermissions.futureaccesslist) or [**MostRecentlyUsedList**](/uwp/api/windows.storage.accesscache.storageapplicationpermissions.mostrecentlyusedlist) to keep track of it. You can learn more about using these lists in [How to track recently-used files and folders](how-to-track-recently-used-files-and-folders.md).

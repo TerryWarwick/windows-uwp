@@ -25,9 +25,14 @@ You can generate single-use codes (and distribute one to each customer), or you 
 Be aware of the following policies for promotional codes:
 
 -   You can generate promotional codes for any app or add-on (with the exception of subscription add-ons) that you published to the Microsoft Store. Customers can redeem the codes on any version of Windows that is supported by your app or add-on.
--   Promotional codes expire 6 months after the date you order them (unless you choose an earlier expiration date).
--   For each of your apps or add-ons, you can generate codes that allow up to 1600 redemptions every 6 months. The 6 month period begins when the first promotional code order is submitted, even if you choose an earlier expiration date. The total of 1600 redemptions per product applies to both single-use codes and codes that can be used multiple times.
--   You must follow the requirements defined in the [App Developer Agreement](https://docs.microsoft.com/legal/windows/agreements/app-developer-agreement), including section **3k. Promotional Codes**.
+-   For games:
+    - You can generate up to 5000 promotional codes per game.
+    - Promotional codes generated for games never expire.
+- For all other types of apps or add-ons:
+    - In any six-month period, you may generate up to 1600 single use promotional codes, or any number of multiple use codes such that the total allowed redemptions does not exceed 1600.
+    - The 6 month period begins when you generate the first promotional code is created and lasts for 6 months regardless of whether or not you set an earlier expiration date on the codes.
+    - Any codes created during an existing six-month period will be count toward the number of codes generated within that period, even if they will expire after the period ends (For example, if you generate a code on the last day of the six-month window, it will be will be still be valid for a full 6 months from its creation.)
+-   You must follow the requirements defined in the [App Developer Agreement](/legal/windows/agreements/app-developer-agreement), including section **3k. Promotional Codes**.
 
 > [!NOTE]
 > You can use promotional codes even if your app is unavailable to customers (that is, if you have selected **Make this product available but not discoverable in the Store** with the **Stop acquisition: Any customer with a direct link can see the product’s Store listing, but they can only download it if they owned the product before, or have a promotional code and are using a Windows 10 device** option in your submission's [Discoverability](choose-visibility-options.md#discoverability) section). With this option, customers must be on Windows 10 (including Xbox) in order to acquire your product with a promotional code.
@@ -65,7 +70,7 @@ To download a fulfilled promotional code order and distribute the codes to custo
     -   **Product name**: The name of the app or add-on that the code is associated with.
     -   **Order name**: The name of the order in which this code was generated.
     -   **Promotional code**: The code itself. This is a 5x5 string of alphanumeric characters separated by hyphens. For example: DM3GY-M2GYM-6YMW6-4QHHT-23W2Z
-    -   **Redeemable URL**: The URL that a customer can use to redeem the code and install your app or add-on. The URL has the following format: http://go.microsoft.com/fwlink/?LinkId=532540&mstoken=&lt;promotional_code>
+    -   **Redeemable URL**: The URL that a customer can use to redeem the code and install your app or add-on. The URL has the following format: https://go.microsoft.com/fwlink/?LinkId=532540&mstoken=&lt;promotional_code>
     -   **Start date**: The date this code became active.
     -   **Expire date**: The date this code expires.
     -   **Code ID**: A unique ID for this code.

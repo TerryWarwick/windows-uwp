@@ -12,15 +12,15 @@ ms.localizationpriority: medium
 
 The Windows Developer Documentation is constantly being updated with information on new features available to developers across the Windows platform. The following feature overviews, developer guidance, and videos have been made available in the month of September.
 
-[Install the tools and SDK](http://go.microsoft.com/fwlink/?LinkId=821431) on Windows 10 and you’re ready to either [create a new Universal Windows app](../get-started/create-uwp-apps.md) or explore how you can use your [existing app code on Windows](../porting/index.md).
+[Install the tools and SDK](https://developer.microsoft.com/windows/downloads#_blank) on Windows 10 and you’re ready to either [create a new Universal Windows app](../get-started/create-uwp-apps.md) or explore how you can use your [existing app code on Windows](../porting/index.md).
 
 ## Features
 
 ### Windows Machine Learning
 
-[The Windows Machine Learning docs](https://docs.microsoft.com/windows/ai/) now reside on their own site, and are updated for the latest Windows Insider SDK. There are desktop and UWP tutorials in C++ and C# to help you get started adding WinML to your application.
+[The Windows Machine Learning docs](/windows/ai/) now reside on their own site, and are updated for the latest Windows Insider SDK. There are desktop and UWP tutorials in C++ and C# to help you get started adding WinML to your application.
 
-[The Windows.AI.MachineLearning API reference](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning) has been updated for the latest Windows Insider SDK.
+[The Windows.AI.MachineLearning API reference](/uwp/api/windows.ai.machinelearning) has been updated for the latest Windows Insider SDK.
 
 [The Windows-Machine-Learning GitHub repo](https://github.com/Microsoft/Windows-Machine-Learning) has been updated with new samples that work with the latest SDK.
 
@@ -28,9 +28,9 @@ The Windows Developer Documentation is constantly being updated with information
 
 ### Windows UI Library
 
-[The Windows UI Library](https://aka.ms/winui-docs) is a set of NuGet packages that provide controls and other user interface elements for UWP apps. These packages are also compatible with earlier versions of Windows 10, so your app works even if your users don't have the latest OS version.
+[The Windows UI Library](/uwp/toolkits/winui/) is a set of NuGet packages that provide controls and other user interface elements for UWP apps. These packages are also compatible with earlier versions of Windows 10, so your app works even if your users don't have the latest OS version.
 
-For more information on the Windows UI Library, see [this list of API namespaces included in the NuGet package.](https://docs.microsoft.com/uwp/api/overview/winui/)
+For more information on the Windows UI Library, see [this list of API namespaces included in the NuGet package.](/uwp/api/overview/winui/)
 
 ## Developer Guidance
 

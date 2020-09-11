@@ -1,5 +1,5 @@
 ---
-Description: This topic explains the general concept of qualifiers, how to use them, and the purpose of each of the qualifier names.
+description: This topic explains the general concept of qualifiers, how to use them, and the purpose of each of the qualifier names.
 title: Tailor your resources for language, scale, high contrast, and other qualifiers
 template: detail.hbs
 ms.date: 10/10/2017
@@ -55,7 +55,7 @@ The file whose name contains the qualifier most appropriate for the setting is t
 
 ## Reference a string or image resource by name
 
-See [Refer to a string resource identifier from XAML markup](localize-strings-ui-manifest.md#refer-to-a-string-resource-identifier-from-xaml-markup), [Refer to a string resource identifier from code](localize-strings-ui-manifest.md#refer-to-a-string-resource-identifier-from-code), and [Reference an image or other asset from XAML markup and code](images-tailored-for-scale-theme-contrast.md#reference-an-image-or-other-asset-from-xaml-markup-and-code).
+See [Refer to a string resource identifier from XAML markup](localize-strings-ui-manifest.md#refer-to-a-string-resource-identifier-from-xaml), [Refer to a string resource identifier from code](localize-strings-ui-manifest.md#refer-to-a-string-resource-identifier-from-code), and [Reference an image or other asset from XAML markup and code](images-tailored-for-scale-theme-contrast.md#reference-an-image-or-other-asset-from-xaml-markup-and-code).
 
 ## Actual and neutral qualifier matches
 You don’t need to provide a resource file for *every* qualifier value. For example, if you find that you only need one visual asset for high contrast and one for standard contrast, then you can name those assets like this.
@@ -108,7 +108,7 @@ Depending on the tools and workflow you use for asset-creation, or on what you f
 
 ## AlternateForm
 
-The `alternateform` qualifier is used to provide an alternate form of a resource for some special purpose. This is typically used only by Japanese app developers to provide a furigana string for which the value `msft-phonetic` is reserved (see the section “Support Furigana for Japanese strings that can be sorted” in [How to prepare for localization](https://msdn.microsoft.com/en-us/library/windows/apps/xaml/hh967762)).
+The `alternateform` qualifier is used to provide an alternate form of a resource for some special purpose. This is typically used only by Japanese app developers to provide a furigana string for which the value `msft-phonetic` is reserved (see the section “Support Furigana for Japanese strings that can be sorted” in [How to prepare for localization](/previous-versions/windows/apps/hh967762(v=win.10))).
 
 Either your target system or your app must provide a value against which `alternateform` qualifiers are matched. Do not use the `msft-` prefix for your own custom `alternateform` qualifier values.
 
@@ -124,7 +124,7 @@ The `contrast` qualifier is used to provide resources that best match high contr
 
 ## Custom
 
-Your app can set a value for the `custom` qualifier, and then resources are loaded that best match that value. For example, you may want to load resources based on your app’s license. When your app launches, it checks its license and uses that as the value for the `custom` qualifier by calling [SetGlobalQualifierValue](/uwp/api/windows.applicationmodel.resources.core.resourcecontext#Windows_ApplicationModel_Resources_Core_ResourceContext_SetGlobalQualifierValue_System_String_System_String_Windows_ApplicationModel_Resources_Core_ResourceQualifierPersistence_), as shown in the code example.
+Your app can set a value for the `custom` qualifier, and then resources are loaded that best match that value. For example, you may want to load resources based on your app’s license. When your app launches, it checks its license and uses that as the value for the `custom` qualifier by calling [SetGlobalQualifierValue](/uwp/api/windows.applicationmodel.resources.core.resourcecontext.setglobalqualifiervalue), as shown in the code example.
 
 ```csharp
 public void SetLicenseLevel(BrandID brand)
@@ -148,7 +148,7 @@ In this scenario, you would then give your resources names that include the qual
 
 ## DeviceFamily
 
-It’s unlikely that you’ll need the `devicefamily` qualifier name. You can and should avoid using it whenever possible because there are techniques that you can use instead that are much more convenient and robust. Those techniques are described in [Detecting the platform your app is running on](../porting/wpsl-to-uwp-input-and-sensors.md#detecting-the-platform-your-app-is-running-on) and [Version adaptive code](https://docs.microsoft.com/windows/uwp/debug-test-perf/version-adaptive-code).
+It’s unlikely that you’ll need the `devicefamily` qualifier name. You can and should avoid using it whenever possible because there are techniques that you can use instead that are much more convenient and robust. Those techniques are described in [Detecting the platform your app is running on](../porting/wpsl-to-uwp-input-and-sensors.md#detecting-the-platform-your-app-is-running-on) and [Version adaptive code](../debug-test-perf/version-adaptive-code.md).
 
 But as a last resort it is possible to use devicefamily qualifiers to name folders that contain your XAML views (a XAML view is a XAML file that contains UI layout and controls).
 
@@ -185,11 +185,11 @@ It’s unlikely that you’ll need the `dxfeaturelevel` qualifier name. It was d
 
 ## HomeRegion
 
-The `homeregion` qualifier corresponds to the user’s setting for country or region. It represents the home location of the user. Values include any valid [BCP-47 region tag](http://go.microsoft.com/fwlink/p/?linkid=227302). That is, any **ISO 3166-1 alpha-2** two-letter region code, plus the set of **ISO 3166-1 numeric** three-digit geographic codes for composed regions (see [United Nations Statistic Division M49 composition of region codes](http://go.microsoft.com/fwlink/p/?linkid=247929)). Codes for "Selected economic and other groupings" are not valid.
+The `homeregion` qualifier corresponds to the user’s setting for country or region. It represents the home location of the user. Values include any valid [BCP-47 region tag](https://tools.ietf.org/html/bcp47). That is, any **ISO 3166-1 alpha-2** two-letter region code, plus the set of **ISO 3166-1 numeric** three-digit geographic codes for composed regions (see [United Nations Statistic Division M49 composition of region codes](https://unstats.un.org/unsd/methods/m49/m49regin.htm)). Codes for "Selected economic and other groupings" are not valid.
 
 ## Language
 
-A `language` qualifier corresponds to the display language setting. Values include any valid [BCP-47 language tag](http://go.microsoft.com/fwlink/p/?linkid=227302). For a list of languages, see the [IANA language subtag registry](http://go.microsoft.com/fwlink/p/?linkid=227303).
+A `language` qualifier corresponds to the display language setting. Values include any valid [BCP-47 language tag](https://tools.ietf.org/html/bcp47). For a list of languages, see the [IANA language subtag registry](https://www.iana.org/assignments/language-subtag-registry).
 
 If you want your app to support different display languages, and you have string literals in your code or in your XAML markup, then move those strings out of the code/markup and into a Resources File (`.resw`). You can then make a translated copy of that Resources File for each language that your app supports.
 
@@ -244,7 +244,7 @@ For info about qualifying a resource for both `scale` and `targetsize`, see [Qua
 
 ## TargetSize
 
-The `targetsize` qualifier is primarily used to specify [file type association icons](https://msdn.microsoft.com/en-us/library/windows/apps/xaml/hh127427) or [protocol icons](https://msdn.microsoft.com/en-us/library/windows/apps/xaml/bb266530) to be shown in File Explorer. The qualifier value represents the side length of a square image in raw (physical) pixels. The resource whose value matches the View setting in File Explorer is loaded; or the resource with the next-largest value in the absence of an exact match.
+The `targetsize` qualifier is primarily used to specify [file type association icons](/windows/desktop/shell/how-to-assign-a-custom-icon-to-a-file-type) or [protocol icons](/windows/desktop/search/-search-3x-wds-ph-ui-extensions) to be shown in File Explorer. The qualifier value represents the side length of a square image in raw (physical) pixels. The resource whose value matches the View setting in File Explorer is loaded; or the resource with the next-largest value in the absence of an exact match.
 
 You can define assets that represent several sizes of `targetsize` qualifier value for the App Icon (`/Assets/Square44x44Logo.png`) in the Visual Assets tab of the app package manifest designer.
 
@@ -252,22 +252,37 @@ For info about qualifying a resource for both `scale` and `targetsize`, see [Qua
 
 ## Theme
 
-The `theme` qualifier is used to provide resources that best match the default app mode setting, or your app’s override using [Application.RequestedTheme](/uwp/api/windows.ui.xaml.application?branch=master.RequestedTheme).
+The `theme` qualifier is used to provide resources that best match the default app mode setting, or your app’s override using [Application.RequestedTheme](/uwp/api/windows.ui.xaml.application.requestedtheme).
+
+
+## Shell light theme and unplated resources
+The *Windows 10 May 2019 Update* introduced a new "light" theme for the Windows Shell. As a result, some application assets that were previously shown on a dark background will now be shown on a light background. For apps that apps that provided altform-unplated assets for the taskbar and window switchers (Alt+Tab, Task View, etc), you should verify that they have acceptable contrast on a light background.
+
+### Providing light theme specific assets
+Apps that want to provide a tailored resource for shell light theme can use a new alternate form resource qualifier: `altform-lightunplated`. This qualifier mirrors the existing altform-unplated qualifier. 
+
+### Downlevel considerations
+Apps should not use the `theme-light` qualifier with the `altform-unplated` qualifier. This will cause unpredictable behavior on RS5 and earlier versions of Windows due to the way resources are loaded for the Taskbar. On earlier versions of windows, the theme-light version may be used incorrectly. The `altform-lightunplated` qualifier avoids this issue. 
+
+### Compatibility behavior
+For backwards compatibility, Windows includes logic to detect a monochromatic icons and check whether it contrasts with the intended background. If the icon fails to meet contrast requirements, Windows will look for a contrast-white version of the asset. If that’s not available, Windows will fall back to using the plated version of the asset.
+
+
 
 ## Important APIs
 
 * [ResourceContext.QualifierValues](/uwp/api/windows.applicationmodel.resources.core.resourcecontext.QualifierValues)
-* [SetGlobalQualifierValue](/uwp/api/windows.applicationmodel.resources.core.resourcecontext#Windows_ApplicationModel_Resources_Core_ResourceContext_SetGlobalQualifierValue_System_String_System_String_Windows_ApplicationModel_Resources_Core_ResourceQualifierPersistence_)
+* [SetGlobalQualifierValue](/uwp/api/windows.applicationmodel.resources.core.resourcecontext.setglobalqualifiervalue)
 
 ## Related topics
 
 * [Effective pixels and scale factor](../design/layout/screen-sizes-and-breakpoints-for-responsive-design.md#effective-pixels-and-scale-factor)
 * [Resource Management System](resource-management-system.md)
-* [How to prepare for localization](https://msdn.microsoft.com/en-us/library/windows/apps/xaml/hh967762)
+* [How to prepare for localization](/previous-versions/windows/apps/hh967762(v=win.10))
 * [Detecting the platform your app is running on](../porting/wpsl-to-uwp-input-and-sensors.md#detecting-the-platform-your-app-is-running-on)
-* [Device families overview](https://docs.microsoft.com/uwp/extension-sdks/device-families-overview)
+* [Programming with extension SDKs](/uwp/extension-sdks/device-families-overview)
 * [Localize your UI strings](localize-strings-ui-manifest.md)
-* [BCP-47](http://go.microsoft.com/fwlink/p/?linkid=227302)
-* [United Nations Statistic Division M49 composition of region codes](http://go.microsoft.com/fwlink/p/?linkid=247929)
-* [IANA language subtag registry](http://go.microsoft.com/fwlink/p/?linkid=227303)
+* [BCP-47](https://tools.ietf.org/html/bcp47)
+* [United Nations Statistic Division M49 composition of region codes](https://unstats.un.org/unsd/methods/m49/m49regin.htm)
+* [IANA language subtag registry](https://www.iana.org/assignments/language-subtag-registry)
 * [Adjust layout and fonts, and support RTL](../design/globalizing/adjust-layout-and-fonts--and-support-rtl.md)

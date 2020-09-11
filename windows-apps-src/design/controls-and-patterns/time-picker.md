@@ -16,9 +16,17 @@ ms.localizationpriority: medium
 # Time picker
  
 
-The time picker gives you a standardized way to let users pick a time value using touch, mouse, or keyboard input. 
+The time picker gives you a standardized way to let users pick a time value using touch, mouse, or keyboard input.
 
-> **Important APIs**: [TimePicker class](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.timepicker.aspx), [Time property](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.timepicker.time.aspx)
+![Example of time picker](images/time-picker-closed.png)
+
+**Get the Windows UI Library**
+
+|  |  |
+| - | - |
+| ![WinUI logo](images/winui-logo-64x64.png) | Windows UI Library 2.2 or later includes a new template for this control that uses rounded corners. For more info, see [Corner radius](../style/rounded-corner.md). WinUI is a NuGet package that contains new controls and UI features for Windows apps. For more info, including installation instructions, see [Windows UI Library](/uwp/toolkits/winui/). |
+
+> **Platform APIs**: [TimePicker class](/uwp/api/Windows.UI.Xaml.Controls.TimePicker), [Time property](/uwp/api/windows.ui.xaml.controls.timepicker.time)
 
 
 ## Is this the right control?
@@ -31,7 +39,7 @@ For more info about choosing the right control, see the [Date and time controls]
 <table>
 <th align="left">XAML Controls Gallery<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p>If you have the <strong style="font-weight: semi-bold">XAML Controls Gallery</strong> app installed, click here to <a href="xamlcontrolsgallery:/item/TimePicker">open the app and see the TimePicker in action</a>.</p>
     <ul>
@@ -51,7 +59,7 @@ The entry point displays the chosen time, and when the user selects the entry po
 This example shows how to create a simple time picker with a header.
 
 ```xaml
-<TimePicker x:Name=arrivalTimePicker Header="Arrival time"/>
+<TimePicker x:Name="arrivalTimePicker" Header="Arrival time"/>
 ```
 
 ```csharp

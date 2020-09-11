@@ -16,12 +16,12 @@ ms.localizationpriority: medium
 
 Set how long a speech recognizer ignores silence or unrecognizable sounds (babble) and continues listening for speech input.
 
-> **Important APIs**: [**Timeouts**](https://msdn.microsoft.com/library/windows/apps/dn653253), [**SpeechRecognizerTimeouts**](https://msdn.microsoft.com/library/windows/apps/dn653230)
+> **Important APIs**: [**Timeouts**](/uwp/api/windows.media.speechrecognition.speechrecognizer.timeouts), [**SpeechRecognizerTimeouts**](/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognizerTimeouts)
 
 ## Set a timeout
 
 
-Here, we specify various [**Timeouts**](https://msdn.microsoft.com/library/windows/apps/dn653253) values:
+Here, we specify various [**Timeouts**](/uwp/api/windows.media.speechrecognition.speechrecognizer.timeouts) values:
 
 -   InitialSilenceTimeout - The length of time that a SpeechRecognizer detects silence (before any recognition results have been generated) and assumes speech input is not forthcoming.
 -   BabbleTimeout - The length of time that a SpeechRecognizer continues to listen to unrecognizable sounds (babble) before it assumes speech input has ended and finalizes the recognition operation.
@@ -40,14 +40,8 @@ recognizer.Timeouts.EndSilenceTimeout = TimeSpan.FromSeconds(1.2);
 
 ## Related articles
 
-
 * [Speech interactions](speech-interactions.md)
+
 **Samples**
-* [Speech recognition and speech synthesis sample](http://go.microsoft.com/fwlink/p/?LinkID=619897)
- 
 
- 
-
-
-
-
+* [Speech recognition and speech synthesis sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/SpeechRecognitionAndSynthesis)

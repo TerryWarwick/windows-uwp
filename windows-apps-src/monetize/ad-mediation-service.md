@@ -1,14 +1,17 @@
 ---
 description: The Microsoft ad mediation service enables you to maximize your ad revenue and app promotion capabilities by displaying ads from multiple ad networks.
 title: Microsoft ad mediation service
-ms.date: 06/05/2018
+ms.date: 02/18/2020
 ms.topic: article
 keywords: windows 10, uwp, ads, advertising, ad mediation
 ms.localizationpriority: medium
 ---
 # Microsoft ad mediation service
 
-When you use the [Microsoft Advertising SDK](http://aka.ms/ads-sdk-uwp) to [display ads in your apps](display-ads-in-your-app.md), you can optionally use the Microsoft ad mediation service to maximize your ad revenue. This article provides an overview of the ad mediation service and its goals.
+>[!WARNING]
+> As of June 1, 2020, the Microsoft Ad Monetization platform for Windows UWP apps will be shut down. [Learn more](https://social.msdn.microsoft.com/Forums/windowsapps/en-US/db8d44cb-1381-47f7-94d3-c6ded3fea36f/microsoft-ad-monetization-platform-shutting-down-june-1st?forum=aiamgr)
+
+When you use the [Microsoft Advertising SDK](https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftAdvertisingSDK) to [display ads in your apps](display-ads-in-your-app.md), you can optionally use the Microsoft ad mediation service to maximize your ad revenue. This article provides an overview of the ad mediation service and its goals.
 
 The ad mediation service is a part of the [Microsoft Ad Monetization platform](https://developer.microsoft.com/windows/ad-monetization-platform). The platform is composed of the following parts.
 
@@ -49,6 +52,6 @@ The ad mediation service works with various ad networks to improve user targetin
 
 ## Related topics
 
-* [Microsoft Advertising SDK](http://aka.ms/ads-sdk-uwp)
+* [Microsoft Advertising SDK](https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftAdvertisingSDK)
 * [Mediation settings](../publish/in-app-ads.md#mediation-settings)
 * [Advertising performance report](../publish/advertising-performance-report.md)

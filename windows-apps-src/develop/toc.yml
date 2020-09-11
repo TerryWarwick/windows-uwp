@@ -1,3 +1,5 @@
+- name: Overview
+  href: index.md
 - name: App types
   items:
     - name: Education apps
@@ -58,11 +60,13 @@
           href: ../audio-video-camera/process-media-frames-with-mediaframereader.md
           items:
             - name: Process audio frames with MediaFrameReader
-              href: ../audio-video-camera/use-opencv-with-mediaframereader.md
+              href: ../audio-video-camera/process-audio-frames-with-mediaframereader.md
             - name: Use OpenCV with MediaFrameReader
               href: ../audio-video-camera/use-opencv-with-mediaframereader.md
         - name: Capture from multiple sources using MediaFrameSourceGroup
           href: ../audio-video-camera/capture-from-multiple-sources-simultaneously.md
+        - name: Connect to remote cameras
+          href: ../audio-video-camera/connect-to-remote-cameras.md
         - name: Get a preview frame
           href: ../audio-video-camera/get-a-preview-frame.md
     - name: Media playback
@@ -95,6 +99,8 @@
               href: ../audio-video-camera/dash-profile-support.md
         - name: Media casting
           href: ../audio-video-camera/media-casting.md
+        - name: Enable audio playback from remote Bluetooth-connected devices
+          href: ../audio-video-camera/enable-remote-audio-playback.md
         - name: PlayReady DRM
           href: ../audio-video-camera/playready-client-sdk.md
           items:
@@ -145,6 +151,8 @@
       href: ../audio-video-camera/codec-query.md
     - name: Screen capture
       href: ../audio-video-camera/screen-capture.md
+    - name: Screen capture to video
+      href: ../audio-video-camera/screen-capture-video.md
 - name: Communication
   items:
     - name: App-to-app communication
@@ -156,6 +164,8 @@
           href: ../app-to-app/receive-data.md
         - name: Copy and paste
           href: ../app-to-app/copy-and-paste.md
+    - name: Interprocess communication (IPC)
+      href: ../communication/interprocess-communication.md
     - name: Networking and web services
       href: ../networking/index.md
       items:
@@ -175,6 +185,8 @@
           href: ../networking/web-feeds.md
         - name: Background transfers
           href: ../networking/background-transfers.md
+    - name: Sharing named objects
+      href: ../communication/sharing-named-objects.md
 - name: Data and files
   items:
     - name: App resources
@@ -220,6 +232,10 @@
           href: ../data-access/sqlite-databases.md
         - name: Use a SQL Server database
           href: ../data-access/sql-server-databases.md
+        - name: Use a MongoDB database
+          href: ../data-access/mongo-db-databases.md
+        - name: Use a MySQL database
+          href: ../data-access/mysql-databases.md
     - name: Data binding
       href: ../data-binding/index.md
       items:
@@ -244,6 +260,8 @@
           href: ../files/quickstart-listing-files-and-folders.md
         - name: Create, write, and read a file
           href: ../files/quickstart-reading-and-writing-files.md
+        - name: Best practices for writing to files
+          href: ../files/best-practices-for-writing-to-files.md
         - name: Get file properties
           href: ../files/quickstart-getting-file-properties.md
         - name: Open files and folders with a picker
@@ -269,7 +287,7 @@
         - name: Fast access to file properties in UWP
           href: ../files/fast-file-properties.md
     - name: Machine Learning
-      href: https://docs.microsoft.com/windows/ai/
+      href: /windows/ai/
 - name: Deployment
   items:
     - name: Choose a UWP version
@@ -296,8 +314,6 @@
               href: ../debug-test-perf/device-portal-desktop.md
             - name: Device Portal for Mobile
               href: ../debug-test-perf/device-portal-mobile.md
-            - name: Device Portal for Xbox
-              href: ../debug-test-perf/device-portal-xbox.md
             - name: Device Portal for Hololens
               href: ../debug-test-perf/device-portal-hololens.md
             - name: Device Portal core APIs
@@ -343,7 +359,7 @@
               href: ../debug-test-perf/optimize-suspend-resume.md
             - name: Optimize file access
               href: ../debug-test-perf/optimize-file-access.md
-            - name: Windows Runtime Components and optimizing interop
+            - name: Windows Runtime components and optimizing interop
               href: ../debug-test-perf/windows-runtime-components-and-optimizing-interop.md
             - name: Tools for profiling and performance
               href: ../debug-test-perf/tools-for-profiling-and-performance.md
@@ -479,15 +495,19 @@
             - name: Access analytics data
               href: ../monetize/access-analytics-data-using-windows-store-services.md
               items:
+                - name: Get acquisitions data for your games and apps
+                  href: ../monetize/acquisitions-data.md
+                - name: Get add-on acquisitions data for your games and apps
+                  href: ../monetize/add-on-acquisitions-data.md
                 - name: UWP apps
                   items:
                     - name: Get acquisitions and installs data
                       items:
-                        - name: Get app acquisitions
+                        - name: Get app acquisitions (legacy)
                           href: ../monetize/get-app-acquisitions.md
                         - name: Get app installs
                           href: ../monetize/get-app-installs.md
-                        - name: Get app acquisition funnel data
+                        - name: Get app acquisition funnel data (legacy)
                           href: ../monetize/get-acquisition-funnel-data.md
                         - name: Get app conversions by channel
                           href: ../monetize/get-app-conversions-by-channel.md
@@ -541,19 +561,6 @@
                           href: ../monetize/download-the-cab-file-for-an-error-in-your-desktop-application.md
                 - name: Xbox One games and Xbox Live
                   items:
-                    - name: Get Xbox One game acquisitions
-                      href: ../monetize/get-xbox-one-game-acquisitions.md
-                    - name: Get Xbox One add-on acquisitions
-                      href: ../monetize/get-xbox-one-add-on-acquisitions.md
-                    - name: Get error reporting data for your Xbox One game
-                      href: ../monetize/get-error-reporting-data-for-your-xbox-one-game.md
-                      items:
-                        - name: Get details for an error in your Xbox One game
-                          href: ../monetize/get-details-for-an-error-in-your-xbox-one-game.md
-                        - name: Get the stack trace for an error in your Xbox One game
-                          href: ../monetize/get-the-stack-trace-for-an-error-in-your-xbox-one-game.md
-                        - name: Download the CAB file for an error in your Xbox One game
-                          href: ../monetize/download-the-cab-file-for-an-error-in-your-xbox-one-game.md
                     - name: Get Xbox Live analytics data
                       href: ../monetize/get-xbox-live-analytics.md
                       items:
@@ -717,71 +724,22 @@
                   href: ../monetize/change-the-billing-state-of-a-subscription-for-a-user.md
                 - name: Renew a Microsoft Store ID key
                   href: ../monetize/renew-a-windows-store-id-key.md
-            - name: App metadata API for advertising networks
-              href: ../monetize/app-metadata-api-for-advertising-networks.md
         - name: Send requests to the Store
           href: ../monetize/send-requests-to-the-store.md
         - name: Add retail demo (RDX) features
           href: ../monetize/retail-demo-experience.md
         - name: Simplify payments with the Payment Request API
-          href: ../monetize/payment-request.md
+          href: ../monetize/index.md
     - name: Packaging apps
-      href: ../packaging/index.md
       items:
-        - name: Package a UWP app with Visual Studio
-          href: ../packaging/packaging-uwp-apps.md
-        - name: Manual app packaging
-          href: ../packaging/manual-packaging-root.md
-          items:
-            - name: Create an app package with the MakeAppx.exe tool
-              href: ../packaging/create-app-package-with-makeappx-tool.md
-            - name: Create a certificate for package signing
-              href: ../packaging/create-certificate-package-signing.md
-            - name: Sign an app package using SignTool
-              href: ../packaging/sign-app-package-using-signtool.md
-            - name: Developing with asset packages and package folding
-              href: ../packaging/package-folding.md
-            - name: Flat bundle app packages
-              href: ../packaging/flat-bundles.md
-            - name: Introduction to asset packages
-              href: ../packaging/asset-packages.md
-            - name: Package creation with the packaging layout
-              href: ../packaging/packaging-layout.md
-        - name: App package architectures
-          href: ../packaging/device-architecture.md
-        - name: UWP App Streaming Install
-          href: ../packaging/streaming-install.md
-          items:
-            - name: Create and convert a source content group map
-              href: ../packaging/create-cgm.md
-        - name: Optional packages and related set authoring
-          href: ../packaging/optional-packages.md
-          items:
-            - name: Optional packages with executable code
-              href: ../packaging/optional-packages-with-executable-code.md
-        - name: Install UWP apps with App Installer
-          href: ../packaging/appinstaller-root.md
-          items:
-            - name: Create an App Installer file with Visual Studio
-              href: ../packaging/create-appinstallerfile-vs.md
-            - name: Install UWP apps from a web page
-              href: ../packaging/installing-UWP-apps-web.md
-            - name: Install a related set using an App Installer file
-              href: ../packaging/install-related-set.md
-            - name: Troubleshoot installation issues with App Installer file
-              href: ../packaging/troubleshoot-appinstaller-issues.md
-            - name: Install a UWP app from an Azure Web App
-              href: ../packaging/web-install-azure.md
-            - name: Install a UWP app from an IIS server
-              href: ../packaging/web-install-iis.md
-            - name: Hosting UWP app packages on AWS for web install
-              href: ../packaging/web-install-aws.md
-        - name: Install apps with the WinAppDeployCmd.exe tool
-          href: ../packaging/install-universal-windows-apps-with-the-winappdeploycmd-tool.md
+        - name: Overview
+          href: ../packaging/index.md
         - name: App capability declarations
           href: ../packaging/app-capability-declarations.md
         - name: Set up automated builds for your UWP app
           href: ../packaging/auto-build-package-uwp-apps.md
+        - name: Install apps with the WinAppDeployCmd.exe tool
+          href: ../packaging/install-universal-windows-apps-with-the-winappdeploycmd-tool.md
         - name: Download and install package updates from the Store
           href: ../packaging/self-install-package-updates.md
 - name: Platform
@@ -821,12 +779,16 @@
           href: ../cpp-and-winrt-apis/collections.md
         - name: Concurrency and asynchronous operations
           href: ../cpp-and-winrt-apis/concurrency.md
+        - name: More advanced concurrency and asynchrony
+          href: ../cpp-and-winrt-apis/concurrency-2.md
         - name: XAML controls; bind to a property
           href: ../cpp-and-winrt-apis/binding-property.md
         - name: XAML items controls; bind to a collection
           href: ../cpp-and-winrt-apis/binding-collection.md
         - name: XAML custom (templated) controls
           href: ../cpp-and-winrt-apis/xaml-cust-ctrl.md
+        - name: Passing parameters into the ABI boundary
+          href: ../cpp-and-winrt-apis/pass-parms-to-abi.md
         - name: Consume COM components
           href: ../cpp-and-winrt-apis/consume-com.md
         - name: Author COM components
@@ -835,18 +797,32 @@
           href: ../cpp-and-winrt-apis/move-to-winrt-from-cx.md
         - name: Interop with C++/CX
           href: ../cpp-and-winrt-apis/interop-winrt-cx.md
+        - name: Asynchrony, and interop with C++/CX
+          href: ../cpp-and-winrt-apis/interop-winrt-cx-async.md
         - name: Move to C++/WinRT from WRL
           href: ../cpp-and-winrt-apis/move-to-winrt-from-wrl.md
+        - name: Porting a sample app from C#
+          href: ../cpp-and-winrt-apis/clipboard-to-winrt-from-csharp.md
+        - name: Move to C++/WinRT from C#
+          href: ../cpp-and-winrt-apis/move-to-winrt-from-csharp.md
         - name: Interop with the ABI
           href: ../cpp-and-winrt-apis/interop-winrt-abi.md
         - name: Strong and weak references
           href: ../cpp-and-winrt-apis/weak-references.md
         - name: Agile objects
           href: ../cpp-and-winrt-apis/agile-objects.md
+        - name: Diagnosing direct allocations
+          href: ../cpp-and-winrt-apis/diag-direct-alloc.md
+        - name: Extension points for implementation types
+          href: ../cpp-and-winrt-apis/details-about-destructors.md
+        - name: A simple C++/WinRT WinUI example
+          href: ../cpp-and-winrt-apis/simple-winui-example.md
         - name: C++ language
           items:
             - name: Value categories, and references
               href: ../cpp-and-winrt-apis/cpp-value-categories.md
+    - name: C#/WinRT
+      href: ../csharp-winrt/index.md
     - name: Security
       href: ../security/index.md
       items:
@@ -946,7 +922,7 @@
           href: ../composition/composition-native-interop.md
         - name: Tailoring your UI
           href: ../composition/composition-tailoring.md
-        - name: Using XAML
+        - name: Using UWP XAML
           href: ../composition/using-the-visual-layer-with-xaml.md
           items:
             - name: XAML lighting
@@ -956,11 +932,13 @@
     - name: Windows Runtime components
       href: ../winrt-components/index.md
       items:
-        - name: Creating Windows Runtime components in C++/CX
+        - name: Windows Runtime components with C++/WinRT
+          href: ../winrt-components/create-a-windows-runtime-component-in-cppwinrt.md
+        - name: Windows Runtime components with C++/CX
           href: ../winrt-components/creating-windows-runtime-components-in-cpp.md
-        - name: "Walkthrough: Creating a basic Windows Runtime component in C++/CX and calling it from JavaScript or C#"
+        - name: Walkthrough of a C++/CX Windows Runtime component
           href: ../winrt-components/walkthrough-creating-a-basic-windows-runtime-component-in-cpp-and-calling-it-from-javascript-or-csharp.md
-        - name: Creating Windows Runtime components in C# and Visual Basic
+        - name: Windows Runtime components with C# and Visual Basic
           href: ../winrt-components/creating-windows-runtime-components-in-csharp-and-visual-basic.md
           items:
             - name: Custom events and event accessors in Windows Runtime components
@@ -971,9 +949,9 @@
               href: ../winrt-components/diagnosing-windows-runtime-component-error-conditions.md
             - name: Distributing a managed Windows Runtime component
               href: ../winrt-components/distributing-a-managed-windows-runtime-component.md
-            - name: .NET Framework mappings of Windows Runtime types
+            - name: .NET mappings of Windows Runtime types
               href: ../winrt-components/net-framework-mappings-of-windows-runtime-types.md
-        - name: "Walkthrough: Creating a Simple Windows Runtime component and calling it from JavaScript"
+        - name: Walkthrough of a C# or Visual Basic Windows Runtime component
           href: ../winrt-components/walkthrough-creating-a-simple-windows-runtime-component-and-calling-it-from-javascript.md
         - name: Raising events in Windows Runtime components
           href: ../winrt-components/raising-events-in-windows-runtime-components.md
@@ -1046,11 +1024,6 @@
           href: ../xaml-platform/custom-attached-properties.md
         - name: Events and routed events overview
           href: ../xaml-platform/events-and-routed-events-overview.md
-        - name: UWP controls in desktop applications
-          href: ../xaml-platform/xaml-host-controls.md
-          items:
-            - name: Using the UWP XAML hosting API
-              href: ../xaml-platform/using-the-xaml-hosting-api.md
 - name: People and places
   items:
     - name: Contacts, My People, and calendar
@@ -1238,27 +1211,8 @@
   items:
     - name: Overview
       href: ../porting/index.md
-    - name: Move from Windows Phone Silverlight to UWP
-      href: ../porting/wpsl-to-uwp-root.md
-      items:
-        - name: Namespace and class mappings
-          href: ../porting/wpsl-to-uwp-namespace-and-class-mappings.md
-        - name: Porting the project
-          href: ../porting/wpsl-to-uwp-porting-to-a-uwp-project.md
-        - name: Troubleshooting
-          href: ../porting/wpsl-to-uwp-troubleshooting.md
-        - name: Porting XAML and UI
-          href: ../porting/wpsl-to-uwp-porting-xaml-and-ui.md
-        - name: Porting for I/O, device, and app model
-          href: ../porting/wpsl-to-uwp-input-and-sensors.md
-        - name: Porting business and data layers
-          href: ../porting/wpsl-to-uwp-business-and-data.md
-        - name: Porting for form factor and UX
-          href: ../porting/wpsl-to-uwp-form-factors-and-ux.md
-        - name: "Case study: Bookstore1"
-          href: ../porting/wpsl-to-uwp-case-study-bookstore1.md
-        - name: "Case study: Bookstore2"
-          href: ../porting/wpsl-to-uwp-case-study-bookstore2.md
+    - name: Move from desktop to UWP
+      href: ../porting/desktop-to-uwp-migrate.md
     - name: Move from Windows Runtime 8.x to UWP
       href: ../porting/w8x-to-uwp-root.md
       items:
@@ -1276,43 +1230,6 @@
           href: ../porting/w8x-to-uwp-case-study-bookstore2.md
         - name: "Case study: QuizGame"
           href: ../porting/w8x-to-uwp-case-study-quizgame.md
-    - name: Package desktop applications
-      href: ../porting/desktop-to-uwp-root.md
-      items:
-        - name: Prepare to package
-          href: ../porting/desktop-to-uwp-prepare.md
-        - name: Package using the Desktop App Converter
-          href: ../porting/desktop-to-uwp-run-desktop-app-converter.md
-        - name: Package using Visual Studio
-          href: ../porting/desktop-to-uwp-packaging-dot-net.md
-        - name: Package manually
-          href: ../porting/desktop-to-uwp-manual-conversion.md
-        - name: Integrate with Windows 10
-          href: ../porting/desktop-to-uwp-extensions.md
-        - name: Enhance for Windows 10
-          href: ../porting/desktop-to-uwp-enhance.md
-          items:
-            - name: Available UWP APIs
-              href: ../porting/desktop-to-uwp-supported-api.md
-            - name: Optimize app binaries with native images
-              href: ../porting/desktop-to-uwp-r2r.md
-        - name: Extend with UWP
-          href: ../porting/desktop-to-uwp-extend.md
-        - name: Run, debug, and test
-          href: ../porting/desktop-to-uwp-debug.md
-          items:
-            - name: Test for Windows 10 in S mode
-              href: ../porting/desktop-to-uwp-test-windows-s.md
-        - name: Apply runtime fixes
-          href: ../porting/package-support-framework.md
-        - name: Distribute
-          href: ../porting/desktop-to-uwp-distribute.md
-        - name: Behind the scenes
-          href: ../porting/desktop-to-uwp-behind-the-scenes.md
-        - name: Known issues
-          href: ../porting/desktop-to-uwp-known-issues.md
-    - name: Share code between desktop and UWP
-      href: ../porting/desktop-to-uwp-migrate.md
     - name: Windows apps concept mapping for Android and iOS developers
       href: ../porting/android-ios-uwp-map.md
     - name: Move from iOS to UWP
@@ -1339,8 +1256,29 @@
               href: ../porting/getting-started-what-next.md
         - name: Setting up your Mac with Windows 10
           href: ../porting/setting-up-your-mac-with-windows-10.md
+    - name: Move from Windows Phone Silverlight to UWP
+      href: ../porting/wpsl-to-uwp-root.md
+      items:
+        - name: Namespace and class mappings
+          href: ../porting/wpsl-to-uwp-namespace-and-class-mappings.md
+        - name: Porting the project
+          href: ../porting/wpsl-to-uwp-porting-to-a-uwp-project.md
+        - name: Troubleshooting
+          href: ../porting/wpsl-to-uwp-troubleshooting.md
+        - name: Porting XAML and UI
+          href: ../porting/wpsl-to-uwp-porting-xaml-and-ui.md
+        - name: Porting for I/O, device, and app model
+          href: ../porting/wpsl-to-uwp-input-and-sensors.md
+        - name: Porting business and data layers
+          href: ../porting/wpsl-to-uwp-business-and-data.md
+        - name: Porting for form factor and UX
+          href: ../porting/wpsl-to-uwp-form-factors-and-ux.md
+        - name: "Case study: Bookstore1"
+          href: ../porting/wpsl-to-uwp-case-study-bookstore1.md
+        - name: "Case study: Bookstore2"
+          href: ../porting/wpsl-to-uwp-case-study-bookstore2.md
     - name: Convert your web app to a PWA on Windows 10
-      href: https://docs.microsoft.com/microsoft-edge/progressive-web-apps
+      href: /microsoft-edge/progressive-web-apps
       items:
         - name: Package Windows 7 app as a PWA
           href: https://docs.pwabuilder.com/jekyll/update/2018/02/03/how-to-package-windows7.html
@@ -1428,8 +1366,10 @@
               href: ../launch-resume/convert-app-service-in-process.md
             - name: Extend your app with services, extensions, and packages
               href: ../launch-resume/extend-your-app-with-services-extensions-packages.md
-            - name: Create and consume an app extension
+            - name: Create and host an app extension
               href: ../launch-resume/how-to-create-an-extension.md
+            - name: Create hosted apps
+              href: ../launch-resume/hosted-apps.md
         - name: Support your app with background tasks
           href: ../launch-resume/support-your-app-with-background-tasks.md
           items:
@@ -1441,6 +1381,8 @@
               href: ../launch-resume/create-and-register-an-inproc-background-task.md
             - name: Create and register an out-of-process background task
               href: ../launch-resume/create-and-register-a-background-task.md
+            - name: Create and register a winmain COM background task
+              href: ../launch-resume/create-and-register-a-winmain-background-task.md
             - name: Port an out-of-process background task to an in-process background task
               href: ../launch-resume/convert-out-of-process-background-task.md
             - name: Debug a background task

@@ -1,14 +1,15 @@
 ---
 title: Xbox Live Test User Management API reference  
-description: Learn how to access the User Management APIs programmatically.
+description: Learn how to get or update the list of users on the console by using the Xbox Device Portal REST API.
 ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 70876ab6-8222-4940-b4fb-65b581a77d6a
 ---
-#Xbox Live User Management#
 
-**Request**
+# Xbox Live User Management
+
+## Request
 
 You can get the list of users on the console, or update the list--adding, removing, signing in, signing out, or modifying existing users.
 
@@ -16,7 +17,7 @@ You can get the list of users on the console, or update the list--adding, removi
 | ------------- |-----------------|
 | GET           | /ext/user |
 | PUT           | /ext/user |
-<br>
+
 
 **URI parameters**
 
@@ -39,7 +40,7 @@ Calls to PUT should include a JSON array with the following structure:
   * SponsoredUser (optional) : bool specifying whether to add a sponsored user.
   * Delete (optional) : bool specifying to delete this user from the console
 
-###Response###
+## Response
 
 **Response body**
 
@@ -64,6 +65,3 @@ This API has the following expected status codes.
 | 204                | Call to PUT was successful and the users on the console have been updated |
 | 4XX                | Various errors for invalid request data or format |
 | 5XX                | Error codes for unexpected failures |
-<br>
-
-

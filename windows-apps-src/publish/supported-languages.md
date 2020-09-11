@@ -1,8 +1,8 @@
 ---
-Description: You can submit apps to the Microsoft Store in over 100 languages.
 title: Supported languages
+description: View a table of the languages and corresponding language codes that are supported for submitting apps to the Microsoft Store.
 ms.assetid: FCA66311-4145-46AC-8B20-1E736F940976
-ms.date: 10/25/2018
+ms.date: 03/07/2019
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
@@ -12,7 +12,7 @@ ms.localizationpriority: medium
 
 You can submit apps to the Microsoft Store in over 100 languages.
 
-To learn more about configuring languages in your apps, see [Globalization and localization](../design/globalizing/globalizing-portal.md) and [Understand user profile languages and app manifest languages](../design/globalizing/manage-language-and-region.md). We also have a [Multilingual App Toolkit](https://docs.microsoft.com/windows/uwp/design/globalizing/use-mat) to help you write apps that support multiple languages.
+To learn more about configuring languages in your apps, see [Globalization and localization](../design/globalizing/globalizing-portal.md) and [Understand user profile languages and app manifest languages](../design/globalizing/manage-language-and-region.md). We also have a [Multilingual App Toolkit](../design/globalizing/use-mat.md) to help you write apps that support multiple languages.
 
 ## Supported languages
 
@@ -29,7 +29,7 @@ Language codes that are not included here are not supported by the Store. We rec
 | Amharic               | am, am-et                                                                                                                                                                                             |
 | Armenian              | hy, hy-am                                                                                                                                                                                             |
 | Assamese              | as, as-in                                                                                                                                                                                             |
-| Azerbaijani           | az, az-arab, az-arab-az, az-cyrl, az-cyrl-az, az-latn, az-latn-az                                                                                                                                     |
+| Azerbaijani           | az-arab, az-arab-az, az-cyrl, az-cyrl-az, az-latn, az-latn-az                                                                                                                                     |
 | Basque (Basque)       | eu, eu-es                                                                                                                                                                                             |
 | Belarusian            | be, be-by                                                                                                                                                                                             |
 | Bangla                | bn, bn-bd, bn-in                                                                                                                                                                                      |
@@ -37,7 +37,7 @@ Language codes that are not included here are not supported by the Store. We rec
 | Bulgarian             | bg, bg-bg                                                                                                                                                                                             |
 | Catalan               | ca, ca-es, ca-es-valencia                                                                                                                                                                             |
 | Cherokee              | chr-cher, chr-cher-us, chr-latn                                                                                                                                                                       |
-| Chinese (Simplified)  | zh, zh-Hans, zh-cn, zh-hans-cn, zh-sg, zh-hans-sg                                                                                                                                                     |
+| Chinese (Simplified)  | zh-Hans, zh-cn, zh-hans-cn, zh-sg, zh-hans-sg                                                                                                                                                     |
 | Chinese (Traditional) | zh-Hant, zh-hk, zh-mo, zh-tw, zh-hant-hk, zh-hant-mo, zh-hant-tw                                                                                                                                      |
 | Croatian              | hr, hr-hr, hr-ba                                                                                                                                                                                      |
 | Czech                 | cs, cs-cz                                                                                                                                                                                             |
@@ -132,7 +132,3 @@ Language codes that are not included here are not supported by the Store. We rec
  
 
  
-
-
-
-

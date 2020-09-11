@@ -11,7 +11,7 @@ ms.localizationpriority: medium
 
 Include a retail demo mode in your Windows app so customers who try out PCs and devices on the sales floor can jump right in.
 
-When customers are in a retail store, they expect to be able to try out demos of PCs and devices. They often spend a considerable chunk of their time playing around with apps through the [retail demo experience (RDX)](https://docs.microsoft.com/windows-hardware/customize/desktop/retail-demo-experience).
+When customers are in a retail store, they expect to be able to try out demos of PCs and devices. They often spend a considerable chunk of their time playing around with apps through the [retail demo experience (RDX)](/windows-hardware/customize/desktop/retail-demo-experience).
 
 You can set up your app to provide different experiences while in _normal_ or _retail_ modes. For example, if your app starts with a setup process, you might skip past it in retail mode, and prepopulate the app with sample data and default settings so they can jump right in.
 
@@ -43,7 +43,7 @@ RDX-aware apps that do not meet these critical requirements will be removed from
 
 * **Error-free experience**. Your app must run with no errors. Additionally, no error pop ups or notifications should be shown to customers using the retail demo devices. Errors reflect negatively on the app itself, your brand, the device's brand, the device's manufacturer's brand, and Microsoft's brand.
 
-* **Paid apps must have a trial mode**. Your app either needs to be a free or include a [trial mode](https://msdn.microsoft.com/windows/uwp/monetize/exclude-or-limit-features-in-a-trial-version-of-your-app). Customers aren't looking to pay for an experience in a retail store.
+* **Paid apps must have a trial mode**. Your app either needs to be a free or include a [trial mode](./exclude-or-limit-features-in-a-trial-version-of-your-app.md). Customers aren't looking to pay for an experience in a retail store.
 
 ### High-priority requirements
 
@@ -55,7 +55,7 @@ RDX-aware apps that do not meet these high priority requirements need to be inve
 
 * **No anonymous communication**. Because a customer using a retail demo device is an anonymous user, they should not be able to message or share content from the device.
 
-* **Deliver consistent experiences by using the cleanup process**. Every customer should have the same experience when they walk up to a retail demo device. Your app should use [clean up process](#clean-up-process) to return to the same default state after each use. We don't want the next customer to see what the last customer left behind. This includes scoreboards, achievements, and unlocks.
+* **Deliver consistent experiences by using the cleanup process**. Every customer should have the same experience when they walk up to a retail demo device. Your app should use [clean up process](#cleanup-process) to return to the same default state after each use. We don't want the next customer to see what the last customer left behind. This includes scoreboards, achievements, and unlocks.
 
 * **Age appropriate content**. All app content needs to be assigned a Teen or lower rating category. To learn more, see [Getting your app rated by IARC](https://www.globalratings.com/for-developers.aspx) and [ESRB ratings](https://www.esrb.org/ratings/ratings_guide.aspx).
 
@@ -70,7 +70,7 @@ The Windows Retail Store team may reach out to developers directly to set up a d
 ## RetailInfo API: Preparing your code for demo mode
 
 ### IsDemoModeEnabled
-The [**IsDemoModeEnabled**](https://docs.microsoft.com/uwp/api/windows.system.profile.retailinfo.isdemomodeenabled) property in the [**RetailInfo**](https://docs.microsoft.com/uwp/api/Windows.System.Profile.RetailInfo) utility class, which is part of the [Windows.System.Profile](https://docs.microsoft.com/uwp/api/windows.system.profile) namespace in the Windows 10 SDK, is used as a Boolean indicator to specify which code path your app runs on - the _normal_ mode or the _retail_ mode.
+The [**IsDemoModeEnabled**](/uwp/api/windows.system.profile.retailinfo.isdemomodeenabled) property in the [**RetailInfo**](/uwp/api/Windows.System.Profile.RetailInfo) utility class, which is part of the [Windows.System.Profile](/uwp/api/windows.system.profile) namespace in the Windows 10 SDK, is used as a Boolean indicator to specify which code path your app runs on - the _normal_ mode or the _retail_ mode.
 
 ``` csharp
 using Windows.Storage;
@@ -80,10 +80,10 @@ StorageFolder folder = ApplicationData.Current.LocalFolder;
 if (Windows.System.Profile.RetailInfo.IsDemoModeEnabled) 
 {
     // Use the demo specific directory
-    folder = await folder.GetFolderAsync(“demo”);
+    folder = await folder.GetFolderAsync("demo");
 }
 
-StorageFile file = await folder.GetFileAsync(“hello.txt”);
+StorageFile file = await folder.GetFileAsync("hello.txt");
 // Now read from file
 ```
 
@@ -95,9 +95,9 @@ StorageFolder^ localFolder = ApplicationData::Current->LocalFolder;
 if (Windows::System::Profile::RetailInfo::IsDemoModeEnabled) 
 {
     // Use the demo specific directory
-    create_task(localFolder->GetFolderAsync(“demo”).then([this](StorageFolder^ demoFolder)
+    create_task(localFolder->GetFolderAsync("demo").then([this](StorageFolder^ demoFolder)
     {
-        return demoFolder->GetFileAsync(“hello.txt”);
+        return demoFolder->GetFileAsync("hello.txt");
     }).then([this](task<StorageFile^> fileTask)
     {
         StorageFile^ file = fileTask.get();
@@ -106,7 +106,7 @@ if (Windows::System::Profile::RetailInfo::IsDemoModeEnabled)
 }
 else
 {
-    create_task(localFolder->GetFileAsync(“hello.txt”).then([this](StorageFile^ file)
+    create_task(localFolder->GetFileAsync("hello.txt").then([this](StorageFile^ file)
     {
         // Do something with file
     });
@@ -115,15 +115,15 @@ else
 
 ``` javascript
 if (Windows.System.Profile.retailInfo.isDemoModeEnabled) {
-    console.log(“Retail mode is enabled.”);
+    console.log("Retail mode is enabled.");
 } else {
-    Console.log(“Retail mode is not enabled.”);
+    Console.log("Retail mode is not enabled.");
 }
 ```
 
 ### RetailInfo.Properties
 
-When [**IsDemoModeEnabled**](https://docs.microsoft.com/uwp/api/windows.system.profile.retailinfo.isdemomodeenabled) returns true, you can query for a set of properties about the device using [**RetailInfo.Properties**](https://docs.microsoft.com/uwp/api/windows.system.profile.retailinfo.properties) to build a more customized retail demo experience. These properties include [**ManufacturerName**](https://docs.microsoft.com/uwp/api/windows.system.profile.knownretailinfoproperties.manufacturername), [**Screensize**](https://docs.microsoft.com/uwp/api/windows.system.profile.knownretailinfoproperties.screensize), [**Memory**](https://docs.microsoft.com/uwp/api/windows.system.profile.knownretailinfoproperties.memory) and so on.
+When [**IsDemoModeEnabled**](/uwp/api/windows.system.profile.retailinfo.isdemomodeenabled) returns true, you can query for a set of properties about the device using [**RetailInfo.Properties**](/uwp/api/windows.system.profile.retailinfo.properties) to build a more customized retail demo experience. These properties include [**ManufacturerName**](/uwp/api/windows.system.profile.knownretailinfoproperties.manufacturername), [**Screensize**](/uwp/api/windows.system.profile.knownretailinfoproperties.screensize), [**Memory**](/uwp/api/windows.system.profile.knownretailinfoproperties.memory) and so on.
 
 ```csharp
 using Windows.UI.Xaml.Controls;
@@ -152,7 +152,7 @@ console.log(pro.retailInfo.properties[pro.KnownRetailInfoProperties.price);
 
 #### IDL
 
-```
+```cpp
 //  Copyright (c) Microsoft Corporation. All rights reserved.
 //
 //  WindowsRuntimeAPISet
@@ -353,7 +353,7 @@ namespace MyCompany.MyApp
 
 ## Related links
 
-* [Store and retrieve app data](https://msdn.microsoft.com/windows/uwp/app-settings/store-and-retrieve-app-data)
-* [How to create and consume an app service](https://msdn.microsoft.com/windows/uwp/launch-resume/how-to-create-and-consume-an-app-service)
-* [Localizing app contents](https://msdn.microsoft.com/windows/uwp/globalizing/globalizing-portal)
-* [Retail demo experience (RDX)](https://docs.microsoft.com/windows-hardware/customize/desktop/retail-demo-experience)
+* [Store and retrieve app data](../design/app-settings/store-and-retrieve-app-data.md)
+* [How to create and consume an app service](../launch-resume/how-to-create-and-consume-an-app-service.md)
+* [Localizing app contents](../design/globalizing/globalizing-portal.md)
+* [Retail demo experience (RDX)](/windows-hardware/customize/desktop/retail-demo-experience)

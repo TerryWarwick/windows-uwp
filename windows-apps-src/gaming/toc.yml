@@ -93,7 +93,7 @@
           items:
             - name: Set up project
               href: ../gaming/tutorial--setting-up-the-games-infrastructure.md
-            - name: UWP framework
+            - name: UWP app framework
               href: ../gaming/tutorial--building-the-games-uwp-app-framework.md
             - name: Game flow management
               href: ../gaming/tutorial-game-flow-management.md
@@ -585,6 +585,8 @@
           href: ../xbox-apps/xbox-dev-mode-companion.md
         - name: Fiddler
           href: ../xbox-apps/uwp-fiddler.md
+        - name: Device Portal for Xbox
+          href: ../xbox-apps/device-portal-xbox.md
     - name: Xbox best practices
       href: ../xbox-apps/tailoring-for-xbox.md
       items:
@@ -641,4 +643,4 @@
         - name: /ext/xboxlive/sandbox
           href: ../xbox-apps/wdp-sandbox-api.md
 - name: Xbox Live
-  href: ../xbox-live/TOC.md
+  href: /gaming/xbox-live/index

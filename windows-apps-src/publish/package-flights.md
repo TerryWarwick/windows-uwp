@@ -2,7 +2,7 @@
 Description: You can use package flights to distribute packages that are only given to a limited test group.
 title: Package flights
 ms.assetid: 5B094822-A8DE-4EE3-B55D-3E306C04EE79
-ms.date: 10/31/2018
+ms.date: 03/07/2019
 ms.topic: article
 keywords: windows 10, uwp, flighting
 ms.localizationpriority: medium
@@ -64,12 +64,12 @@ For more info, see [Gradual package rollout](gradual-package-rollout.md).
 
 ## Configure additional package flight options
 
-By default, your package flight will be published and made available to your flight group as soon as it completes the certification process. If you'd like to change the [publish date](set-app-pricing-and-availability.md#publish-date), or want to add [Notes for certification](notes-for-certification.md), you can do so in the **Flight options** section. Click **Save** to return to the package flight overview page. 
+By default, your package flight will be published and made available to your flight group as soon as it completes the certification process. If you'd like to change the [publish date](set-app-pricing-and-availability.md#publish-date), you can do so in the **Flight options** section. Click **Save** to return to the package flight overview page. 
 
 
 ## Submit your package flight to the Store
 
-When you've specified packages and configured any options needed, click **Submit to the Store**. Your package flight will then go through the [app certification process](the-app-certification-process.md). Note that packages included in your package flight must comply with the [Microsoft Store Policies](https://docs.microsoft.com/legal/windows/agreements/store-policies), as with all submissions.
+When you've specified packages and configured any options needed, click **Submit to the Store**. Your package flight will then go through the [app certification process](the-app-certification-process.md). Note that packages included in your package flight must comply with the [Microsoft Store Policies](store-policies.md), as with all submissions.
 
 People in your flight group(s) associated with that package flight who already have your app will now get an update using the packages you included in your package flight. If those people don’t have your app yet, they’ll get the packages from your package flight when they install it. 
 

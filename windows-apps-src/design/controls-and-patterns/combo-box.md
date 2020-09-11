@@ -1,7 +1,7 @@
 ---
-Description: A text entry box that provides suggestions as the user types.
-title: Combo box (drop down list)
-label: Combo box
+description: Learn how to use list boxes and combo boxes, also called drop-down lists, to present lists of items that users can select from. 
+title: Combo box and list box
+label: Combo box and list box
 template: detail.hbs
 ms.date: 10/02/2018
 ms.topic: article
@@ -11,17 +11,23 @@ design-contact:
 doc-status: Draft
 ms.localizationpriority: medium
 ---
-# Combo box
+# Combo box and list box
 
-Use a combo box (also known as a drop-down list) to present a list of items that a user can select from. A combo box starts in a compact state and expands to show a list of selectable items.
+Use a combo box (also known as a drop-down list) to present a list of items that a user can select from. A combo box starts in a compact state and expands to show a list of selectable items. A ListBox is similar to a combo box, but is not collapsible/does not have a compact state. You can learn more about List boxes at the end of this article.
 
 When the combo box is closed, it either displays the current selection or is empty if there is no selected item. When the user expands the combo box, it displays the list of selectable items.
 
-> **Important APIs**: [ComboBox class](/uwp/api/Windows.UI.Xaml.Controls.ComboBox), [IsEditable property](/uwp/api/windows.ui.xaml.controls.combobox.iseditable), [Text property](/uwp/api/Windows.UI.Xaml.Controls.ComboBox), [TextSubmitted event](/uwp/api/Windows.UI.Xaml.Controls.ComboBox)
+![Example of a drop-down list in its compact state](images/combo-box-expand.gif)
 
-A combo box in its compact state with a header.
+> _A combo box in its compact state with a header._
 
-![Example of a drop-down list in its compact state](images/combo_box_collapsed.png)
+**Get the Windows UI Library**
+
+|  |  |
+| - | - |
+| ![WinUI logo](images/winui-logo-64x64.png) | Windows UI Library 2.2 or later includes a new template for this control that uses rounded corners. For more info, see [Corner radius](../style/rounded-corner.md). WinUI is a NuGet package that contains new controls and UI features for Windows apps. For more info, including installation instructions, see [Windows UI Library](/uwp/toolkits/winui/). |
+
+> **Platform APIs:** [ComboBox class](/uwp/api/Windows.UI.Xaml.Controls.ComboBox), [IsEditable property](/uwp/api/windows.ui.xaml.controls.combobox.iseditable), [Text property](/uwp/api/Windows.UI.Xaml.Controls.ComboBox), [TextSubmitted event](/uwp/api/Windows.UI.Xaml.Controls.ComboBox)
 
 ## Is this the right control?
 
@@ -35,11 +41,11 @@ A combo box in its compact state with a header.
 <table>
 <th align="left">XAML Controls Gallery<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p>If you have the <strong style="font-weight: semi-bold">XAML Controls Gallery</strong> app installed, click here to <a href="xamlcontrolsgallery:/item/ComboBox">open the app and see the ComboBox in action</a>.</p>
     <ul>
-    <li><a href="https://www.microsoft.com/store/productId/9MSVH128X2ZT">Get the XAML Controls Gallery app (Microsoft Store)</a></li>
+    <li><a href="https://www.microsoft.com/p/xaml-controls-gallery/9msvh128x2zt">Get the XAML Controls Gallery app (Microsoft Store)</a></li>
     <li><a href="https://github.com/Microsoft/Xaml-Controls-Gallery">Get the source code (GitHub)</a></li>
     </ul>
 </td>
@@ -94,7 +100,7 @@ public MainPage()
 
 ### Item selection
 
-Like ListView and GridView, ComboBox is derived from [Selector](/uwp/api/windows.ui.xaml.controls.primitives.selector), so you can get the user’s selection in the same standard way.
+Like ListView and GridView, ComboBox is derived from [Selector](/uwp/api/windows.ui.xaml.controls.primitives.selector), so you can get the user's selection in the same standard way.
 
 You can get or set the combo box's selected item by using the [SelectedItem](/uwp/api/windows.ui.xaml.controls.primitives.selector.selecteditem) property, and get or set the index of the selected item by using the [SelectedIndex](/uwp/api/windows.ui.xaml.controls.primitives.selector.selectedindex) property.
 
@@ -204,7 +210,7 @@ A "recently used names" chooser lets the user enter custom strings. The 'Recentl
 
 ### Text submitted
 
-You can handle the [TextSubmitted](/uwp/api/Windows.UI.Xaml.Controls.ComboBox) event to work with the value entered by the user. In the event handler, you will typically validate that the value entered by the user is valid, then use the value in your app. Depending on the situation, you might also add the value to the combo box’s list of options for future use.
+You can handle the [TextSubmitted](/uwp/api/Windows.UI.Xaml.Controls.ComboBox) event to work with the value entered by the user. In the event handler, you will typically validate that the value entered by the user is valid, then use the value in your app. Depending on the situation, you might also add the value to the combo box's list of options for future use.
 
 The TextSubmitted event occurs when these conditions are met:
 
@@ -234,13 +240,13 @@ private void FontSizeComboBox_TextSubmitted(ComboBox sender, ComboBoxTextSubmitt
 {
     if (byte.TryParse(e.Text, out double newValue))
     {
-        // Update the app’s font size.
+        // Update the app's font size.
         _fontSize = newValue;
     }
     else
     {
         // If the item is invalid, reject it and revert the text.
-        // Mark the event as handled so the framework doesn’t update the selected item.
+        // Mark the event as handled so the framework doesn't update the selected item.
         sender.Text = sender.SelectedValue.ToString();
         e.Handled = true;
     }
@@ -273,7 +279,7 @@ private void FavoriteColorComboBox_TextSubmitted(ComboBox sender, ComboBoxTextSu
     else
     {
         // If the item is invalid, reject it but do not revert the text.
-        // Mark the event as handled so the framework doesn’t update the selected item.
+        // Mark the event as handled so the framework doesn't update the selected item.
         e.Handled = true;
     }
 }
@@ -289,6 +295,32 @@ bool IsValid(string Text)
 - Limit the text content of combo box items to a single line.
 - Sort items in a combo box in the most logical order. Group together related options and place the most common options at the top. Sort names in alphabetical order, numbers in numerical order, and dates in chronological order.
 
+## List boxes
+
+A list box allows the user to choose either a single item or multiple items from a collection. List boxes are similar to drop-down lists, except that list boxes are always open—there is no compact (non-expanded) state for a list box. Items in the list can be scrolled if there isn't space to show everything.
+
+### Is this the right control?
+
+- A list box can be useful when items in the list are important enough to prominently display, and when there's enough screen real estate, to show the full list.
+- A list box should draw the user's attention to the full set of alternatives in an important choice. By contrast, a drop-down list initially draws the user's attention to the selected item.
+- Avoid using a list box if:
+    - There is a very small number of items for the list. A single-select list box that always has the same 2 options might be better presented as [radio buttons](radio-button.md). Also consider using radio buttons when there are 3 or 4 static items in the list.
+    - The list box is single-select and it always has the same 2 options where one can be implied as not the other, such as "on" and "off." Use a single check box or a toggle switch.
+    - There is a very large number of items. A better choice for long lists are grid view and list view. For very long lists of grouped data, semantic zoom is preferred.
+    - The items are contiguous numerical values. If that's the case, consider using a [slider](slider.md).
+    - The selection items are of secondary importance in the flow of your app or the default option is recommended for most users in most situations. Use a drop-down list instead.
+
+### Recommendations
+
+- The ideal range of items in a list box is 3 to 9.
+- A list box works well when its items can dynamically vary.
+- If possible, set the size of a list box so that its list of items don't need to be panned or scrolled.
+- Verify that the purpose of the list box, and which items are currently selected, is clear.
+- Reserve visual effects and animations for touch feedback, and for the selected state of items.
+- Limit the list box item's text content to a single line. If the items are visuals, you can customize the size. If an item contains multiple lines of text or images, instead use a grid view or list view.
+- Use the default font unless your brand guidelines indicate to use another.
+- Don't use a list box to perform commands or to dynamically show or hide other controls.
+
 ## Get the sample code
 
 - [XAML Controls Gallery sample](https://github.com/Microsoft/Xaml-Controls-Gallery) - See all the XAML controls in an interactive format.
@@ -299,6 +331,6 @@ bool IsValid(string Text)
 - [Text controls](text-controls.md)
 - [Spell checking](text-controls.md)
 - [Search](search.md)
-- [TextBox class](https://msdn.microsoft.com/library/windows/apps/br209683)
-- [Windows.UI.Xaml.Controls PasswordBox class](https://msdn.microsoft.com/library/windows/apps/br227519)
-- [String.Length property](https://msdn.microsoft.com/library/system.string.length.aspx)
+- [TextBox class](/uwp/api/Windows.UI.Xaml.Controls.TextBox)
+- [Windows.UI.Xaml.Controls PasswordBox class](/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)
+- [String.Length property](/dotnet/api/system.string.length)

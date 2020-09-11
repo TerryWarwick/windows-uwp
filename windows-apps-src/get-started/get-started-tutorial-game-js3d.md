@@ -34,7 +34,7 @@ Want to get a glimpse of the app we'll be making before reading further? Check i
 
 To play with this project, you'll need the following:
 -	A Windows computer (or a virtual machine) running the current version of Windows 10.
--	A copy of Visual Studio. The free Visual Studio Community Edition can be downloaded from the [Visual Studio homepage](http://visualstudio.com/).
+-	A copy of Visual Studio. The free Visual Studio Community Edition can be downloaded from the [Visual Studio homepage](https://visualstudio.com/).
 This project makes use of the **three.js** JavaScript library. **three.js** is released under the MIT license. This library is already present in the project (look for `js/libs` in the Solution Explorer view). More information about this library can be found at the [**three.js**](https://threejs.org/) home page.
 
 ## Getting started
@@ -442,7 +442,7 @@ scene.add(controls.getObject());
 
 The camera is now connected, but we need to somehow let the mouse and controller interact so that we can look around. 
 
-For this situation, the [Pointer Lock API](https://docs.microsoft.com/microsoft-edge/dev-guide/dom/pointer-lock) comes to the rescue by letting us connect mouse movements to our camera. The Pointer Lock API also makes the mouse disappear for a more immersive experience. By pressing ESC we end the mouse to camera connection and make the mouse reappear. Additions of the `getPointerLock()` and `lockChange()` functions will help us do just that.
+For this situation, the [Pointer Lock API](/microsoft-edge/dev-guide/dom/pointer-lock) comes to the rescue by letting us connect mouse movements to our camera. The Pointer Lock API also makes the mouse disappear for a more immersive experience. By pressing ESC we end the mouse to camera connection and make the mouse reappear. Additions of the `getPointerLock()` and `lockChange()` functions will help us do just that.
 
 The `getPointerLock()` function listens for when a mouse click happens. After the click, our rendered game (in the `container` element) tries to get control of the mouse. We also add an event listener to detect when the player activates or deactivates the lock which then calls `lockChange()`. 
 
@@ -1085,7 +1085,6 @@ Now you have a UWP app, it is possible to publish it to the Microsoft Store (ass
 There are a few steps to the process.
 
 1.	You must be [registered](https://developer.microsoft.com/store/register) as a Windows Developer.
-2.	You must use the app submission [checklist](https://msdn.microsoft.com/windows/uwp/publish/app-submissions).
-3.	The app must be submitted for [certification](https://msdn.microsoft.com/windows/uwp/publish/the-app-certification-process).
-For more details, see [Publishing your UWP app](https://developer.microsoft.com/store/publish-apps).
-
+2.	You must use the app submission [checklist](../publish/app-submissions.md).
+3.	The app must be submitted for [certification](../publish/the-app-certification-process.md).
+For more details, see [Publishing your UWP app](../publish/index.md).

@@ -11,7 +11,7 @@
       href: ../publish/trademark-and-copyright-protection.md
 - name: Manage account users
   href: ../publish/manage-account-users.md
-  items:
+  items: 
     - name: Associate Azure AD with your Partner Center account
       href: ../publish/associate-azure-ad-with-partner-center.md
     - name: Add users, groups, and Azure AD applications
@@ -178,8 +178,6 @@
       href: ../publish/insights-report.md
     - name: Advertising performance report
       href: ../publish/advertising-performance-report.md
-    - name: Ad campaign report
-      href: ../publish/ad-campaign-report.md
     - name: Download analytics reports
       href: ../publish/download-analytic-reports.md
 - name: Getting paid
@@ -189,9 +187,9 @@
       href: ../publish/setting-up-your-payout-account-and-tax-forms.md
     - name: Payout thresholds, methods, and timeframes
       href: ../publish/payment-thresholds-methods-and-timeframes.md
-    - name: Payout summary
+    - name: Payout reports
       href: ../publish/payout-summary.md
-    - name: Tax details for paid apps
+    - name: Tax details
       href: ../publish/tax-details-for-paid-apps.md
     - name: Understand IRS tax forms
       href: ../publish/understand-irs-tax-forms.md
@@ -200,14 +198,15 @@
     - name: VAT info
       href: ../publish/vat-info.md
 - name: Store Policies and Code of Conduct
-  href: https://docs.microsoft.com/legal/windows/agreements/store-policies-and-code-of-conduct
+  href: ../publish/store-policies-and-code-of-conduct.md
   items:
     - name: Microsoft Store Policies
-      href: https://docs.microsoft.com/legal/windows/agreements/store-policies
-      items:
-        - name: Change history
-          href: https://docs.microsoft.com/legal/windows/agreements/store-policies-change-history
+      href: ../publish/store-policies.md
+    - name: Store Policies change history
+      href: ../publish/store-policies-change-history.md
     - name: App Quality
-      href: https://docs.microsoft.com/legal/windows/agreements/store-app-quality
+      href: ../publish/store-app-quality.md
     - name: Developer Code of Conduct
-      href: https://docs.microsoft.com/legal/windows/agreements/store-developer-code-of-conduct
+      href: ../publish/store-developer-code-of-conduct.md
+    - name: Microsoft Store Product Ranking, Placement and Marketing Disclosure Statement
+      href: https://aka.ms/disclosurepolicypdf

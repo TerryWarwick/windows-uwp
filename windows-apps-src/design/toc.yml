@@ -1,11 +1,11 @@
+- name: Overview
+  href: index.md
 - name: Design basics
   items:
     - name: Overview
       href: basics/index.md
     - name: Intro to app design
       href: basics/design-and-ui-intro.md
-    - name: Fluent Design System
-      href: fluent-design-system/index.md
     - name: Navigation basics
       items:
         - name: Overview
@@ -39,10 +39,16 @@
     - name: Layouts with XAML
       href: layout/layouts-with-xaml.md
     - name: Show multiple views
-      href: layout/show-multiple-views.md
+      items:
+          - name: Show multiple views
+            href: layout/show-multiple-views.md
+          - name: Use AppWindow
+            href: layout/app-window.md
+          - name: Use ApplicationView
+            href: layout/application-view.md
     - name: Alignment, margin, and padding
       href: layout/alignment-margin-padding.md
-    - name: Layout panels
+    - name: Panels
       items:
         - name: Overview
           href: layout/layout-panels.md
@@ -54,65 +60,84 @@
           href: layout/custom-panels-overview.md
         - name: "Custom panel example: BoxPanel"
           href: layout/boxpanel-example-custom-panel.md
+    - name: Attached Layout
+      href: layout/attached-layouts.md
     - name: Transforms
       items:
         - name: Overview
           href: layout/transforms.md
         - name: 3-D perspective effects
           href: layout/3-d-perspective-effects.md
+    - name: Z-depth and shadow
+      href: layout/depth-shadow.md
 - name: Controls
   items:
     - name: Overview
       href: controls-and-patterns/index.md
     - name: Intro to controls and events
       href: controls-and-patterns/controls-and-events-intro.md
+    - name: Intro to commanding
+      href: controls-and-patterns/commanding.md
     - name: Index of controls by function
       href: controls-and-patterns/controls-by-function.md
     - name: Basic input
       items:
         - name: Buttons
           href: controls-and-patterns/buttons.md
-        - name: Check box
+        - name: Check boxes
           href: controls-and-patterns/checkbox.md
-        - name: Combo box
+        - name: Combo boxes and list boxes
           href: controls-and-patterns/combo-box.md
         - name: Hyperlinks
           href: controls-and-patterns/hyperlinks.md
-        - name: Radio button
+        - name: Radio buttons
           href: controls-and-patterns/radio-button.md
         - name: Rating control
           href: controls-and-patterns/rating.md
-        - name: Slider
+        - name: Sliders
           href: controls-and-patterns/slider.md
-        - name: Toggle
+        - name: Toggle switches
           href: controls-and-patterns/toggles.md
     - name: Collections
       items:
         - name: Overview
           href: controls-and-patterns/lists.md
-        - name: Flip view
-          href: controls-and-patterns/flipview.md
         - name: List view and grid view
           href: controls-and-patterns/listview-and-gridview.md
+        - name: Flip view
+          href: controls-and-patterns/flipview.md
+        - name: Tree view
+          href: controls-and-patterns/tree-view.md
+        - name: ItemsRepeater
+          href: controls-and-patterns/items-repeater.md
+        - name: Item containers and templates
           items:
             - name: Item containers and templates
               href: controls-and-patterns/item-containers-templates.md
+            - name: Data template selection
+              href: controls-and-patterns/data-template-selector.md
             - name: Item templates for list view
               href: controls-and-patterns/item-templates-listview.md
             - name: Item templates for grid view
               href: controls-and-patterns/item-templates-gridview.md
-        - name: Inverted lists
-          href: controls-and-patterns/inverted-lists.md
-        - name: Pull-to-refresh
-          href: controls-and-patterns/pull-to-refresh.md
-        - name: Nested UI
-          href: controls-and-patterns/nested-ui.md
-        - name: Collection commanding
-          href: controls-and-patterns/collection-commanding.md
-        - name: Swipe
-          href: controls-and-patterns/swipe.md
-        - name: Tree view
-          href: controls-and-patterns/tree-view.md
+        - name: Selection and interaction
+          items:
+            - name: Collection commanding
+              href: controls-and-patterns/collection-commanding.md
+            - name: Selection mode overview
+              href: controls-and-patterns/selection-modes.md
+            - name: Swipe
+              href: controls-and-patterns/swipe.md
+            - name: Pull-to-refresh
+              href: controls-and-patterns/pull-to-refresh.md
+            - name: Filtering collections
+              href: controls-and-patterns/listview-filtering.md
+        - name: Additional collection options and customizations
+          items:
+            - name: Inverted lists
+              href: controls-and-patterns/inverted-lists.md
+            - name: Nested UI
+              href: controls-and-patterns/nested-ui.md
     - name: Dialogs and flyouts
       items:
         - name: Overview
@@ -121,6 +146,8 @@
           href: controls-and-patterns/dialogs-and-flyouts/dialogs.md
         - name: Flyouts
           href: controls-and-patterns/dialogs-and-flyouts/flyouts.md
+        - name: Teaching tip
+          href: controls-and-patterns/dialogs-and-flyouts/teaching-tip.md
     - name: Forms
       href: controls-and-patterns/forms.md
     - name: Media, graphics, and shapes
@@ -153,6 +180,8 @@
           href: controls-and-patterns/navigationview.md
         - name: Pivot
           href: controls-and-patterns/pivot.md
+        - name: Tab view
+          href: controls-and-patterns/tab-view.md
     - name: People
       items:
         - name: Contact card
@@ -203,12 +232,16 @@
           href: controls-and-patterns/rich-edit-box.md
         - name: Password box
           href: controls-and-patterns/password-box.md
+        - name: Number box
+          href: controls-and-patterns/number-box.md
         - name: Labels
           href: controls-and-patterns/labels.md
         - name: Content links
           href: controls-and-patterns/content-links.md
         - name: Handwriting view
           href: controls-and-patterns/text-handwriting-view.md
+    - name: Two-pane view
+      href: controls-and-patterns/two-pane-view.md
 - name: Style
   items:
     - name: Overview
@@ -231,8 +264,12 @@
       href: style/reveal.md
     - name: Reveal focus
       href: style/reveal-focus.md
+    - name: Corner radius
+      href: style/rounded-corner.md
     - name: Sound
       href: style/sound.md
+    - name: Spacing
+      href: style/spacing.md
     - name: Writing style
       href: style/writing-style.md
     - name: XAML brushes
@@ -316,15 +353,19 @@
             - name: Toast content schema
               href: shell/tiles-and-notifications/toast-schema.md
             - name: Send local toast
-              href: shell/tiles-and-notifications/send-local-toast.md
               items:
+                - name: Windows apps
+                  href: shell/tiles-and-notifications/send-local-toast.md
                 - name: Desktop apps
-                  href: shell/tiles-and-notifications/toast-desktop-apps.md
                   items:
+                    - name: Overview
+                      href: shell/tiles-and-notifications/toast-desktop-apps.md
                     - name: C# apps
                       href: shell/tiles-and-notifications/send-local-toast-desktop.md
                     - name: C++ WRL apps
                       href: shell/tiles-and-notifications/send-local-toast-desktop-cpp-wrl.md
+            - name: Schedule toasts
+              href: shell/tiles-and-notifications/scheduled-toast.md
             - name: Custom audio
               href: shell/tiles-and-notifications/custom-audio-on-toasts.md
             - name: Progress bar
@@ -361,6 +402,8 @@
           items:
             - name: WNS Priorities
               href: shell/tiles-and-notifications/wns-notification-priorities.md
+            - name: Allowlisting WNS Traffic
+              href: shell/tiles-and-notifications/firewall-allowlist-config.md
             - name: Code generated by the push notification wizard
               href: shell/tiles-and-notifications/the-code-generated-by-the-push-notification-wizard.md
         - name: Raw notifications
@@ -407,6 +450,18 @@
           href: input/respond-to-the-presence-of-the-touch-keyboard.md
         - name: Use input scope to change the touch keyboard
           href: input/use-input-scope-to-change-the-touch-keyboard.md
+    - name: Text input
+      items:
+        - name: Custom text input
+          href: input/custom-text-input.md
+        - name: Text scaling
+          href: input/text-scaling.md
+        - name: Selecting text and images
+          href: input/guidelines-for-textselection.md
+        - name: Input Method Editors
+          href: input/input-method-editors.md
+        - name: Input Method Editor requirements
+          href: input/input-method-editor-requirements.md
     - name: Gamepad and remote control
       href: input/gamepad-and-remote-interactions.md
     - name: Touchpad
@@ -435,29 +490,25 @@
       href: input/cortana-interactions.md
       items:
         - name: Design guidelines
-          href: https://docs.microsoft.com/cortana/voice-commands/voicecommand-design-guidelines
+          href: /cortana/voice-commands/voicecommand-design-guidelines
         - name: Activate a foreground app
-          href: https://docs.microsoft.com/cortana/voice-commands/launch-a-foreground-app-with-voice-commands-in-cortana
+          href: /cortana/voice-commands/launch-a-foreground-app-with-voice-commands-in-cortana
         - name: Modify VCD phrase lists
-          href: https://docs.microsoft.com/cortana/voice-commands/dynamically-modify-voice-command-definition-vcd-phrase-lists
+          href: /cortana/voice-commands/dynamically-modify-voice-command-definition-vcd-phrase-lists
         - name: Launch a background app
-          href: https://docs.microsoft.com/cortana/voice-commands/launch-a-background-app-with-voice-commands-in-cortana
+          href: /cortana/voice-commands/launch-a-background-app-with-voice-commands-in-cortana
         - name: Interact with a background app
-          href: https://docs.microsoft.com/cortana/voice-commands/interact-with-a-background-app-in-cortana
+          href: /cortana/voice-commands/interact-with-a-background-app-in-cortana
         - name: Deep link from a background app
-          href: https://docs.microsoft.com/cortana/voice-commands/deep-link-into-your-app-from-cortana
+          href: /cortana/voice-commands/deep-link-into-your-app-from-cortana
         - name: Support natural-language voice commands
-          href: https://docs.microsoft.com/cortana/voice-commands/support-natural-language-voice-commands-in-cortana
+          href: /cortana/voice-commands/support-natural-language-voice-commands-in-cortana
     - name: Multiple inputs
       href: input/multiple-input-design-guidelines.md
     - name: Input injection
       href: input/input-injection.md
     - name: Identify input devices
       href: input/identify-input-devices.md
-    - name: Custom text input
-      href: input/custom-text-input.md
-    - name: Text scaling
-      href: input/text-scaling.md
     - name: Drag and drop
       href: input/drag-and-drop.md
     - name: Optical zoom and resizing
@@ -466,8 +517,6 @@
       href: input/guidelines-for-panning.md
     - name: Rotation
       href: input/guidelines-for-rotation.md
-    - name: Selecting text and images
-      href: input/guidelines-for-textselection.md
     - name: Targeting
       href: input/guidelines-for-targeting.md
     - name: Visual feedback
@@ -503,6 +552,8 @@
           href: accessibility/basic-accessibility-information.md
         - name: Keyboard accessibility
           href: accessibility/keyboard-accessibility.md
+        - name: Screen readers and hardware system buttons
+          href: accessibility/system-button-narration.md
         - name: Landmarks and Headings
           href: accessibility/landmarks-and-headings.md
         - name: High-contrast themes
@@ -513,13 +564,11 @@
           href: accessibility/practices-to-avoid.md
         - name: Custom automation peers
           href: accessibility/custom-automation-peers.md
-          items:
-            - name: Control patterns and interfaces
-              href: accessibility/control-patterns-and-interfaces.md
+        - name: Control patterns and interfaces
+          href: accessibility/control-patterns-and-interfaces.md
     - name: App settings
-      href: app-settings/app-settings-and-data.md
       items:
-        - name: Guidelines
+        - name: Guidelines for app settings
           href: app-settings/guidelines-for-app-settings.md
         - name: Store and retrieve app settings and data
           href: app-settings/store-and-retrieve-app-data.md
@@ -548,11 +597,14 @@
           href: globalizing/use-mat.md
         - name: Multilingual App Toolkit 4.0 FAQ & troubleshooting
           href: globalizing/mat-faq-troubleshooting.md
+        - name: Use the UTF-8 code page
+          href: globalizing/use-utf8-code-page.md
         - name: Prepare your application for the Japanese era change
           href: globalizing/japanese-era-change.md
-    - name: Guidelines for app help
-      href: in-app-help/guidelines-for-app-help.md
+    - name: In-app help
       items:
+        - name: Guidelines for app help
+          href: in-app-help/guidelines-for-app-help.md
         - name: Instructional UI
           href: in-app-help/instructional-ui.md
         - name: In-app help

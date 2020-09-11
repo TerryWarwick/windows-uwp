@@ -19,7 +19,13 @@ A tooltip is a short description that is linked to another control or object. To
 
 ![A tooltip](images/controls/tool-tip.png)
 
-> **Important APIs**: [ToolTip class](/uwp/api/Windows.UI.Xaml.Controls.ToolTip), [ToolTipService class](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.tooltipservice)
+**Get the Windows UI Library**
+
+|  |  |
+| - | - |
+| ![WinUI logo](images/winui-logo-64x64.png) | Windows UI Library 2.2 or later includes a new template for this control that uses rounded corners. For more info, see [Corner radius](../style/rounded-corner.md). WinUI is a NuGet package that contains new controls and UI features for Windows apps. For more info, including installation instructions, see [Windows UI Library](/uwp/toolkits/winui/). |
+
+> **Platform APIs**: [ToolTip class](/uwp/api/Windows.UI.Xaml.Controls.ToolTip), [ToolTipService class](/uwp/api/windows.ui.xaml.controls.tooltipservice)
 
 ## Is this the right control?
 
@@ -53,7 +59,7 @@ When should you use a tooltip? To decide, consider these questions:
 <table>
 <th align="left">XAML Controls Gallery<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p>If you have the <strong style="font-weight: semi-bold">XAML Controls Gallery</strong> app installed, click here to <a href="xamlcontrolsgallery:/item/ToolTip">open the app and see the ToolTip in action</a>.</p>
     <ul>
@@ -64,9 +70,9 @@ When should you use a tooltip? To decide, consider these questions:
 </tr>
 </table>
 
-A tooltip in the Bing Maps app.
+A tooltip in the Windows Maps app.
 
-![A tooltip in the Bing Maps app](images/control-examples/tool-tip-maps.png)
+![A tooltip in the Windows Maps app](images/control-examples/tool-tip-maps.png)
 
 ## Create a tooltip
 
@@ -119,7 +125,7 @@ For broad adjustments, use the [Placement](/uwp/api/windows.ui.xaml.controls.too
 </Image>
 ```
 
-If a ToolTip obscures the content it is referring to, you can adjust its placement precisely using the new **PlacementRect** property. PlacementRect anchors the ToolTip's position and also serves as an area that ToolTip will not occlude, provided there’s sufficient screen space to draw ToolTip outside this area. You can specify the origin of the rectangle relative to the ToolTip’s owner, and the height and width of the exclusion area. The [Placement](/uwp/api/windows.ui.xaml.controls.tooltip.placement) property will define if ToolTip should draw above, below, left, or right of the PlacementRect. 
+If a ToolTip obscures the content it is referring to, you can adjust its placement precisely using the new **PlacementRect** property. PlacementRect anchors the ToolTip's position and also serves as an area that ToolTip will not occlude, provided there's sufficient screen space to draw ToolTip outside this area. You can specify the origin of the rectangle relative to the ToolTip's owner, and the height and width of the exclusion area. The [Placement](/uwp/api/windows.ui.xaml.controls.tooltip.placement) property will define if ToolTip should draw above, below, left, or right of the PlacementRect. 
 
 ```xaml
 <!-- An Image with a non-occluding ToolTip. -->
@@ -147,4 +153,4 @@ If a ToolTip obscures the content it is referring to, you can adjust its placeme
 
 ## Related articles
 
-- [ToolTip class](https://msdn.microsoft.com/library/windows/apps/br227608)
+- [ToolTip class](/uwp/api/Windows.UI.Xaml.Controls.ToolTip)

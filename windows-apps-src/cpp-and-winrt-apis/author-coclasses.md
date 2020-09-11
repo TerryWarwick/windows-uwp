@@ -1,15 +1,64 @@
 ---
 description: C++/WinRT can help you to author classic COM components, just as it helps you to author Windows Runtime classes.
 title: Author COM components with C++/WinRT
-ms.date: 09/06/2018
+ms.date: 04/24/2019
 ms.topic: article
 keywords: windows 10, uwp, standard, c++, cpp, winrt, projection, author, COM, component
 ms.localizationpriority: medium
 ms.custom: RS5
 ---
+
 # Author COM components with C++/WinRT
 
-[C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) can help you to author classic Component Object Model (COM) components (or coclasses), just as it helps you to author Windows Runtime classes. Here's a simple illustration, which you can test out if you paste the code into the `pch.h` and `main.cpp` of a new **Windows Console Application (C++/WinRT)** project.
+[C++/WinRT](./intro-to-using-cpp-with-winrt.md) can help you to author classic Component Object Model (COM) components (or coclasses), just as it helps you to author Windows Runtime classes. This topic shows you how.
+
+## How C++/WinRT behaves, by default, with respect to COM interfaces
+
+C++/WinRT's [**winrt::implements**](/uwp/cpp-ref-for-winrt/implements) template is the base from which your runtime classes and activation factories directly or indirectly derive.
+
+By default, **winrt::implements** supports only [**IInspectable**](/windows/win32/api/inspectable/nn-inspectable-iinspectable)-based interfaces, and it silently ignores classic COM interfaces. Any **QueryInterface** (QI) calls for classic COM interfaces will consequently fail with **E_NOINTERFACE**.
+
+In a moment you'll see how to overcome that situation, but first here's a code example to illustrate what happens by default.
+
+```idl
+// Sample.idl
+runtimeclass Sample
+{
+    Sample();
+    void DoWork();
+}
+
+// Sample.h
+#include "pch.h"
+#include <shobjidl.h> // Needed only for this file.
+
+namespace winrt::MyProject
+{
+    struct Sample : implements<Sample, IInitializeWithWindow>
+    {
+        IFACEMETHOD(Initialize)(HWND hwnd);
+        void DoWork();
+    }
+}
+```
+
+And here's client code to consume the **Sample** class.
+
+```cppwinrt
+// Client.cpp
+Sample sample; // Construct a Sample object via its projection.
+
+// This next line crashes, because the QI for IInitializeWithWindow fails.
+sample.as<IInitializeWithWindow>()->Initialize(hwnd); 
+```
+
+The good news is that all it takes to cause **winrt::implements** to support classic COM interfaces is to include `unknwn.h` before you include any C++/WinRT headers.
+
+You could do that explicitly, or indirectly by including some other header file such as `ole2.h`. One recommended method is to include the `wil\cppwinrt.h` header file, which is part of the [Windows Implementation Libraries (WIL)](https://github.com/Microsoft/wil). The `wil\cppwinrt.h` header file not only makes sure that `unknwn.h` is included before `winrt/base.h`, it also sets things up so that C++/WinRT and WIL understand each other's exceptions and error codes.
+
+## A simple example of a COM component
+
+Here's a simple example of a COM component written using C++/WinRT. This is a full listing of a mini-application, so you can try the code out if you paste it into the `pch.h` and `main.cpp` of a new **Windows Console Application (C++/WinRT)** project.
 
 ```cppwinrt
 // pch.h
@@ -64,13 +113,13 @@ Also see [Consume COM components with C++/WinRT](consume-com.md).
 
 The remainder of this topic walks through creating a minimal console application project that uses C++/WinRT to implement a basic coclass (COM component, or COM class) and class factory. The example application shows how to deliver a toast notification with a callback button on it, and the coclass (which implements the **INotificationActivationCallback** COM interface) allows the application to be launched and called back when the user clicks that button on the toast.
 
-More background about the toast notification feature area can be found at [Send a local toast notification](/windows/uwp/design/shell/tiles-and-notifications/send-local-toast). None of the code examples in that section of the documentation use C++/WinRT, though, so we recommend that you prefer the code shown in this topic.
+More background about the toast notification feature area can be found at [Send a local toast notification](../design/shell/tiles-and-notifications/send-local-toast.md). None of the code examples in that section of the documentation use C++/WinRT, though, so we recommend that you prefer the code shown in this topic.
 
 ## Create a Windows Console Application project (ToastAndCallback)
 
-Begin by creating a new project in Microsoft Visual Studio. Create a **Visual C++** > **Windows Desktop** > **Windows Console Application (C++/WinRT)** project, and name it *ToastAndCallback*.
+Begin by creating a new project in Microsoft Visual Studio. Create a **Windows Console Application (C++/WinRT)** project, and name it *ToastAndCallback*.
 
-Open `pch.h`, and add `#include <unknwn.h>` before the includes for any C++/WinRT headers.
+Open `pch.h`, and add `#include <unknwn.h>` before the includes for any C++/WinRT headers. Here's the result; you can replace the contents of your `pch.h` with this listing.
 
 ```cppwinrt
 // pch.h
@@ -79,9 +128,15 @@ Open `pch.h`, and add `#include <unknwn.h>` before the includes for any C++/WinR
 #include <winrt/Windows.Foundation.h>
 ```
 
-Open `main.cpp`, and remove the using-directives that the project template generates. In their place, paste the following code (which gives us the libs, headers, and type names that we need).
+Open `main.cpp`, and remove the using-directives that the project template generates. In their place, insert the following code (which gives us the libs, headers, and type names that we need). Here's the result; you can replace the contents of your `main.cpp` with this listing (we've also removed the code from `main` in the listing below, because we'll be replacing that function later).
 
 ```cppwinrt
+// main.cpp : Defines the entry point for the console application.
+
+#include "pch.h"
+
+#pragma comment(lib, "advapi32")
+#pragma comment(lib, "ole32")
 #pragma comment(lib, "shell32")
 
 #include <iomanip>
@@ -96,7 +151,11 @@ Open `main.cpp`, and remove the using-directives that the project template gener
 using namespace winrt;
 using namespace Windows::Data::Xml::Dom;
 using namespace Windows::UI::Notifications;
+
+int main() { }
 ```
+
+The project won't build yet; after we've finished adding code, you'll be prompted to build and run.
 
 ## Implement the coclass and class factory
 
@@ -112,24 +171,24 @@ std::wstring const this_app_name{ L"ToastAndCallback" };
 
 struct callback : winrt::implements<callback, INotificationActivationCallback>
 {
-	HRESULT __stdcall Activate(
-		LPCWSTR app,
-		LPCWSTR args,
-		[[maybe_unused]] NOTIFICATION_USER_INPUT_DATA const* data,
-		[[maybe_unused]] ULONG count) noexcept final
-	{
-		try
-		{
-			std::wcout << this_app_name << L" has been called back from a notification." << std::endl;
-			std::wcout << L"Value of the 'app' parameter is '" << app << L"'." << std::endl;
-			std::wcout << L"Value of the 'args' parameter is '" << args << L"'." << std::endl;
+    HRESULT __stdcall Activate(
+        LPCWSTR app,
+        LPCWSTR args,
+        [[maybe_unused]] NOTIFICATION_USER_INPUT_DATA const* data,
+        [[maybe_unused]] ULONG count) noexcept final
+    {
+        try
+        {
+            std::wcout << this_app_name << L" has been called back from a notification." << std::endl;
+            std::wcout << L"Value of the 'app' parameter is '" << app << L"'." << std::endl;
+            std::wcout << L"Value of the 'args' parameter is '" << args << L"'." << std::endl;
             return S_OK;
         }
-		catch (...)
-		{
+        catch (...)
+        {
             return winrt::to_hresult();
-		}
-	}
+        }
+    }
 };
 
 struct callback_factory : implements<callback_factory, IClassFactory>
@@ -156,7 +215,7 @@ struct callback_factory : implements<callback_factory, IClassFactory>
 };
 ```
 
-The implementation of the coclass above follows the same pattern that's demonstrated in [Author APIs with C++/WinRT](/windows/uwp/cpp-and-winrt-apis/author-apis#if-youre-not-authoring-a-runtime-class). So, you can use the same technique to implement COM interfaces as well as Windows Runtime interfaces. COM components and Windows Runtime classes expose their features via interfaces. Every COM interface ultimately derives from the [**IUnknown interface**](https://msdn.microsoft.com/library/windows/desktop/ms680509) interface. The Windows Runtime is based on COM&mdash;one distinction being that Windows Runtime interfaces ultimately derive from the [**IInspectable interface**](/windows/desktop/api/inspectable/nn-inspectable-iinspectable) (and **IInspectable** derives from **IUnknown**).
+The implementation of the coclass above follows the same pattern that's demonstrated in [Author APIs with C++/WinRT](./author-apis.md#if-youre-not-authoring-a-runtime-class). So, you can use the same technique to implement COM interfaces as well as Windows Runtime interfaces. COM components and Windows Runtime classes expose their features via interfaces. Every COM interface ultimately derives from the [**IUnknown interface**](/windows/desktop/api/unknwn/nn-unknwn-iunknown) interface. The Windows Runtime is based on COM&mdash;one distinction being that Windows Runtime interfaces ultimately derive from the [**IInspectable interface**](/windows/desktop/api/inspectable/nn-inspectable-iinspectable) (and **IInspectable** derives from **IUnknown**).
 
 In the coclass in the code above, we implement the **INotificationActivationCallback::Activate** method, which is the function that's called when the user clicks the callback button on a toast notification. But before that function can be called, an instance of the coclass needs to be created, and that's the job of the **IClassFactory::CreateInstance** function.
 
@@ -170,7 +229,7 @@ However, you mustn't allow exceptions to escape your COM method implementations.
 
 ## Add helper types and functions
 
-In this step, we'll add some helper types and functions that the rest of the code makes use of. So, before `main`, add the following.
+In this step, we'll add some helper types and functions that the rest of the code makes use of. So, immediately before `main`, add the following.
 
 ```cppwinrt
 struct prop_variant : PROPVARIANT
@@ -242,7 +301,7 @@ std::wstring get_shortcut_path()
 
 ## Implement the remaining functions, and the wmain entry point function
 
-The project template generates a `main` function for you. Delete that `main` function, and in its place paste this code listing, which includes code to register your coclass, and then to deliver a toast capable of calling back your application.
+Delete your `main` function, and in its place paste this code listing, which includes code to register your coclass, and then to deliver a toast capable of calling back your application.
 
 ```cppwinrt
 void register_callback()
@@ -339,6 +398,7 @@ void create_toast()
     ToastNotification toast{ xml };
     ToastNotifier notifier{ ToastNotificationManager::CreateToastNotifier(this_app_name) };
     notifier.Show(toast);
+    ::Sleep(50); // Give the callback chance to display.
 }
 
 void LaunchedNormally(HANDLE, INPUT_RECORD &, DWORD &);
@@ -370,7 +430,7 @@ void LaunchedNormally(HANDLE consoleHandle, INPUT_RECORD & buffer, DWORD & event
     try
     {
         bool runningAsAdmin{ ::IsUserAnAdmin() == TRUE };
-        std::wcout << this_app_name << L" is running" << (runningAsAdmin ? L" (Administrator)." : L".") << std::endl;
+        std::wcout << this_app_name << L" is running" << (runningAsAdmin ? L" (administrator)." : L" (NOT as administrator).") << std::endl;
 
         if (runningAsAdmin)
         {
@@ -402,7 +462,9 @@ void LaunchedFromNotification(HANDLE consoleHandle, INPUT_RECORD & buffer, DWORD
 
 ## How to test the example application
 
-Build the application, and then run it at least once as Administrator to cause the registration, and other setup, code to run. Whether or not you're running it as Administrator, then press 'T' to cause a toast to be displayed. You can then click the **Call back ToastAndCallback** button either directly from the toast notification that pops up, or from the Action Center, and your application will be launched, the coclass instantiated, and the **INotificationActivationCallback::Activate** method executed.
+Build the application, and then run it at least once as an administrator to cause the registration, and other setup, code to run. One way to do that is to run Visual Studio as an administrator, and then run the app from Visual Studio. Right-click Visual Studio in the taskbar to display the jump list, right-click Visual Studio on the jump list, and then click **Run as administrator**. Agree to the prompt, and then open the project. When you run the application, a message is displayed indicating whether or not the application is running as an administrator. If it isn't, then the registration and other setup won't run. That registration and other setup has to run at least once in order for the application to work correctly.
+
+Whether or not you're running the application as an administrator, press 'T' to cause a toast to be displayed. You can then click the **Call back ToastAndCallback** button either directly from the toast notification that pops up, or from the Action Center, and your application will be launched, the coclass instantiated, and the **INotificationActivationCallback::Activate** method executed.
 
 ## In-process COM server
 
@@ -414,7 +476,7 @@ Alternatively (and arguably more likely), you can choose to host your coclass(es
 
 You can begin the task of creating an in-process COM server by creating a new project in Microsoft Visual Studio. Create a **Visual C++** > **Windows Desktop** > **Dynamic-Link Library (DLL)** project.
 
-To add C++/WinRT support to the new project, follow the steps described in [Modify a Windows Desktop application project to add C++/WinRT support](/windows/uwp/cpp-and-winrt-apis/get-started#modify-a-windows-desktop-application-project-to-add-cwinrt-support).
+To add C++/WinRT support to the new project, follow the steps described in [Modify a Windows Desktop application project to add C++/WinRT support](./get-started.md#modify-a-windows-desktop-application-project-to-add-cwinrt-support).
 
 ### Implement the coclass, class factory, and in-proc server exports
 
@@ -443,8 +505,7 @@ struct __declspec(uuid("85d6672d-0606-4389-a50a-356ce7bded09"))
     {
         try
         {
-            *ppvObject = winrt::make<MyCoclass>().get();
-            return S_OK;
+            return winrt::make<MyCoclass>()->QueryInterface(riid, ppvObject);
         }
         catch (...)
         {
@@ -520,10 +581,10 @@ struct MyCoclass : winrt::implements<MyCoclass, IMyComInterface, winrt::Windows:
 
 ## Important APIs
 * [IInspectable interface](/windows/desktop/api/inspectable/nn-inspectable-iinspectable)
-* [IUnknown interface](https://msdn.microsoft.com/library/windows/desktop/ms680509)
+* [IUnknown interface](/windows/desktop/api/unknwn/nn-unknwn-iunknown)
 * [winrt::implements struct template](/uwp/cpp-ref-for-winrt/implements)
 
 ## Related topics
-* [Author APIs with C++/WinRT](/windows/uwp/cpp-and-winrt-apis/author-apis)
+* [Author APIs with C++/WinRT](./author-apis.md)
 * [Consume COM components with C++/WinRT](consume-com.md)
-* [Send a local toast notification](/windows/uwp/design/shell/tiles-and-notifications/send-local-toast)
+* [Send a local toast notification](../design/shell/tiles-and-notifications/send-local-toast.md)

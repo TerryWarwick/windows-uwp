@@ -12,7 +12,7 @@ ms.localizationpriority: medium
 
 You can respond to reviews of your app to let customers know you’re listening to their feedback. With a review response, you can tell customers about the features you’ve added or bugs you’ve fixed based on their comments, or get more specific feedback on how to improve your app. Your responses will be displayed in the Microsoft Store for all Windows 10 customers to see. You can also choose to send your response by email to the customer (if they haven’t opted out and are using a device running Windows 10, version 1803 or higher).
 
-To view your app's reviews and provide responses, find the app in [Partner Center](https://partner.microsoft.com/dashboard). In the left navigation menu, expand *Analytics** and then click **Reviews** to display the [Reviews report](reviews-report.md). Select **Respond to review** to provide your response.
+To view your app's reviews and provide responses, find the app in [Partner Center](https://partner.microsoft.com/dashboard). In the left navigation menu, expand **Analytics** and then click **Reviews** to display the [Reviews report](reviews-report.md). Select **Respond to review** to provide your response.
 
 > [!TIP]
 > In addition to using Partner Center to respond to reviews, you can respond to reviews [programmatically](../monetize/submit-responses-to-app-reviews.md).
@@ -29,7 +29,7 @@ When responding to a customer's review, you must follow these guidelines. These 
 > You won’t be able to change the responses you post to the Store (unless the customer revises their original review), so review your response carefully. If a customer revises the original review, your response will be removed from the app's  Store listing page. You then have the option to submit a new response to the revised review by selecting **Update your response**.
 
 -   Responses can't be longer than 1000 characters.
--   You may not offer any type of compensation, including digital app items, to users for changing the app rating. Remember, attempts to manipulate ratings are not permitted under the [App Developer Agreement](https://docs.microsoft.com/legal/windows/agreements/app-developer-agreement).
+-   You may not offer any type of compensation, including digital app items, to users for changing the app rating. Remember, attempts to manipulate ratings are not permitted under the [App Developer Agreement](/legal/windows/agreements/app-developer-agreement).
 -   Don’t include any marketing content or ads in your response. Remember, your reviewer is already your customer.
 -   Don’t promote other apps or services in your response.
 -   Your response must be directly related to the specific app and review. Duplicating the same response to a large number of users isn’t allowed if the canned response doesn’t address the same question.
@@ -40,7 +40,7 @@ When responding to a customer's review, you must follow these guidelines. These 
 >
 > Microsoft retains the right to revoke a developer’s permission to send responses for any reason, including if your responses prompt an unusually high number of inappropriate response reports, or if they prompt an unusually high number of customers to opt out of receiving review responses.
 
-Your relationship with your customers is your own. Microsoft doesn’t get involved in disputes between developers and customers. However, if a review of your app contains offensive, profane, or abusive language, please open a [support request](http://go.microsoft.com/fwlink/p/?LinkID=401178).
+Your relationship with your customers is your own. Microsoft doesn’t get involved in disputes between developers and customers. However, if a review of your app contains offensive, profane, or abusive language, please open a [support request](https://developer.microsoft.com/windows/support).
 
 
 ## Use customer reviews to improve your app

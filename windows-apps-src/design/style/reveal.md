@@ -2,7 +2,7 @@
 description: Reveal is a lighting effect that helps bring depth and focus to your app's interactive elements.
 title: Reveal Highlight
 template: detail.hbs
-ms.date: 08/9/2017
+ms.date: 08/09/2017
 ms.topic: article
 keywords: windows 10, uwp
 pm-contact: kisai
@@ -17,7 +17,7 @@ ms.localizationpriority: medium
 
 Reveal Highlight is a lighting effect that highlights interactive elements, such as command bars, when the user moves the pointer near them. 
 
-> **Important APIs**: [RevealBrush class](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.revealbrush), [RevealBackgroundBrush class](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.revealbackgroundbrush), [RevealBorderBrush class](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.revealborderbrush), [RevealBrushHelper class](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.revealbrushhelper), [VisualState class](https://docs.microsoft.com/en-us/uwp/api/Windows.UI.Xaml.VisualState)
+> **Important APIs**: [RevealBrush class](/uwp/api/windows.ui.xaml.media.revealbrush), [RevealBackgroundBrush class](/uwp/api/windows.ui.xaml.media.revealbackgroundbrush), [RevealBorderBrush class](/uwp/api/windows.ui.xaml.media.revealborderbrush), [RevealBrushHelper class](/uwp/api/windows.ui.xaml.media.revealbrushhelper), [VisualState class](/uwp/api/Windows.UI.Xaml.VisualState)
 
 ## How it works
 Reveal Highlight calls attention to interactive elements by revealing the element's container when the pointer is nearby, as shown in this illustration:
@@ -82,7 +82,7 @@ These controls do not have Reveal by default as they are smaller controls that a
 To apply these styles, simply set the control's [Style](/uwp/api/Windows.UI.Xaml.Style) property:
 
 ```xaml
-<Button Content="Button Content" Style="{StaticResource ButtonRevealStyle}"/>
+<Button Content="Button Content" Style="{ThemeResource ButtonRevealStyle}"/>
 ```
 
 ### Reveal in themes
@@ -136,7 +136,7 @@ In most cases we handle the usage of both of them by turning Reveal on automatic
 ### When to add Reveal
 You can add Reveal to your custom controls--but before you do, consider the type of control and how it behaves. 
 * If your custom control is a single interactive element and doesn't have similar controls sharing it's space (such as menu items in a menu), it's likely that your custom control doesn't need Reveal.  
-* If you have a grouping of related interactive content or elements, then it's likely that that region of your app does need Reveal - this is commonly referred to as a [Commanding](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/collection-commanding) surface.
+* If you have a grouping of related interactive content or elements, then it's likely that that region of your app does need Reveal - this is commonly referred to as a [Commanding](../controls-and-patterns/collection-commanding.md) surface.
 
 For example, a button by itself shouldn't use reveal, but a set of buttons in a command bar should use Reveal.
 
@@ -279,13 +279,13 @@ Place the border approach brush on the elements' backplates as well as their bor
 
 ## Reveal and the Fluent Design System
 
- The Fluent Design System helps you create modern, bold UI that incorporates light, depth, motion, material, and scale. Reveal is a Fluent Design System component that adds light to your app. To learn more, see the [Fluent Design for UWP overview](../fluent-design-system/index.md).
+ The Fluent Design System helps you create modern, bold UI that incorporates light, depth, motion, material, and scale. Reveal is a Fluent Design System component that adds light to your app. To learn more, see the [Fluent Design overview](/windows/apps/fluent-design-system).
 
 ## Related articles
 
-- [RevealBrush class](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.revealbrush)
+- [RevealBrush class](/uwp/api/windows.ui.xaml.media.revealbrush)
 - [Acrylic](acrylic.md)
-- [Composition Effects](https://msdn.microsoft.com/windows/uwp/graphics/composition-effects)
-- [Fluent Design for UWP](../fluent-design-system/index.md)
+- [Composition Effects](../../composition/composition-effects.md)
+- [Fluent Design for UWP](/windows/apps/fluent-design-system)
 - [Science in the System: Fluent Design and Depth](https://medium.com/microsoft-design/science-in-the-system-fluent-design-and-depth-fb6d0f23a53f)
 - [Science in the System: Fluent Design and Light](https://medium.com/microsoft-design/the-science-in-the-system-fluent-design-and-light-94a17e0b3a4f)

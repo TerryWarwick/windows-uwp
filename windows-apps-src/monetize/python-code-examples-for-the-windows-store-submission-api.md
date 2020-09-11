@@ -1,7 +1,7 @@
 ---
 ms.assetid: 8AC56AAF-8D8C-4193-A6B3-BB5D0669D994
 description: Use the Python code examples in this section to learn more about using the Microsoft Store submission API.
-title: Python sample - submissions for apps, add-ons, and flights
+title: Python code to submit apps, add-ons, and flights
 ms.date: 07/10/2017
 ms.topic: article
 keywords: windows 10, uwp, Microsoft Store submission API, code examples, python
@@ -24,7 +24,7 @@ This article provides Python code examples that demonstrate how to use the [Micr
 
 The following example demonstrates how to [obtain an Azure AD access token](create-and-manage-submissions-using-windows-store-services.md#obtain-an-azure-ad-access-token) that you can use to call methods in the Microsoft Store submission API. After you obtain a token, you have 60 minutes to use this token in calls to the Microsoft Store submission API before the token expires. After the token expires, you can generate a new token..
 
-[!code[SubmissionApi](./code/StoreServicesExamples_Submission/python/Examples.py#L1-L20)]
+:::code language="python" source="~/../snippets-windows/windows-uwp/monetize/StoreServicesExamples_Submission/python/Examples.py" range="1-20":::
 
 <span id="create-add-on" />
 
@@ -32,7 +32,7 @@ The following example demonstrates how to [obtain an Azure AD access token](crea
 
 The following example demonstrates how to [create](create-an-add-on.md) and then [delete](delete-an-add-on.md) an add-on.
 
-[!code[SubmissionApi](./code/StoreServicesExamples_Submission/python/Examples.py#L26-L52)]
+:::code language="python" source="~/../snippets-windows/windows-uwp/monetize/StoreServicesExamples_Submission/python/Examples.py" range="26-52":::
 
 <span id="create-package-flight" />
 
@@ -40,7 +40,7 @@ The following example demonstrates how to [create](create-an-add-on.md) and then
 
 The following example demonstrates how to [create](create-a-flight.md) and then [delete](delete-a-flight.md) a package flight.
 
-[!code[SubmissionApi](./code/StoreServicesExamples_Submission/python/Examples.py#L58-L87)]
+:::code language="python" source="~/../snippets-windows/windows-uwp/monetize/StoreServicesExamples_Submission/python/Examples.py" range="58-87":::
 
 <span id="create-app-submission" />
 
@@ -55,7 +55,7 @@ The following example shows how to use several methods in the Microsoft Store su
 5. Next, it [updates](update-an-app-submission.md) and then [commits](commit-an-app-submission.md) the new submission to Partner Center.
 6. Finally, it periodically [checks the status of the new submission](get-status-for-an-app-submission.md) until the submission is successfully committed.
 
-[!code[SubmissionApi](./code/StoreServicesExamples_Submission/python/Examples.py#L93-L166)]
+:::code language="python" source="~/../snippets-windows/windows-uwp/monetize/StoreServicesExamples_Submission/python/Examples.py" range="93-166":::
 
 <span id="create-add-on-submission" />
 
@@ -70,7 +70,7 @@ The following example shows how to use several methods in the Microsoft Store su
 5. Next, it [updates](update-an-add-on-submission.md) and then [commits](commit-an-add-on-submission.md) the new submission to Partner Center.
 6. Finally, it periodically [checks the status of the new submission](get-status-for-an-add-on-submission.md) until the submission is successfully committed.
 
-[!code[SubmissionApi](./code/StoreServicesExamples_Submission/python/Examples.py#L172-L245)]
+:::code language="python" source="~/../snippets-windows/windows-uwp/monetize/StoreServicesExamples_Submission/python/Examples.py" range="172-245":::
 
 <span id="create-flight-submission" />
 
@@ -85,7 +85,7 @@ The following example shows how to use several methods in the Microsoft Store su
 5. Next, it [updates](update-a-flight-submission.md) and then [commits](commit-a-flight-submission.md) the new submission to Partner Center.
 6. Finally, it periodically [checks the status of the new submission](get-status-for-a-flight-submission.md) until the submission is successfully committed.
 
-[!code[SubmissionApi](./code/StoreServicesExamples_Submission/python/Examples.py#L251-L325)]
+:::code language="python" source="~/../snippets-windows/windows-uwp/monetize/StoreServicesExamples_Submission/python/Examples.py" range="251-325":::
 
 ## Related topics
 

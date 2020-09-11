@@ -1,13 +1,16 @@
 ---
-Description: Common questions about ad campaigns
-title: Common questions about ad campaigns
+title: View answers to common questions about ad campaigns for your apps on topics including cost, billing, customization, and support.
+description: Common questions about ad campaigns
 ms.assetid: EAF7CC74-7DE4-4D11-B9A6-29C6EA6E734B
-ms.date: 10/31/2018
+ms.date: 02/18/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ---
 # Common questions about ad campaigns
+
+>[!WARNING]
+> As of June 1, 2020, the Microsoft Ad Monetization platform for Windows UWP apps will be shut down. [Learn more](https://social.msdn.microsoft.com/Forums/windowsapps/en-US/db8d44cb-1381-47f7-94d3-c6ded3fea36f/microsoft-ad-monetization-platform-shutting-down-june-1st?forum=aiamgr)
 
 ### How much does it cost to run an ad for my app?
 
@@ -53,5 +56,5 @@ If you don’t want to wait to be billed, you can pay your bill immediately by s
 
 ### How do I delete a credit card or edit the details of a credit card?
 
-Go to <http://commerce.microsoft.com>, log in with your Microsoft account credentials, and make the necessary changes.
+Go to [https://commerce.microsoft.com](https://commerce.microsoft.com), log in with your Microsoft account credentials, and make the necessary changes.
 

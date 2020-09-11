@@ -1,4 +1,4 @@
-﻿---
+---
 Description: The first step in creating a new app in Partner Center is reserving an app name. See how to reserve app names and find suggestions for choosing a great name for your app.
 title: Create your app by reserving a name
 keywords: windows 10, uwp, name reservation, app name, app names, names, product name, naming, reserved name, title, names, titles
@@ -15,7 +15,7 @@ The first step in creating a new app in [Partner Center](https://partner.microso
 
 You can reserve a name for your app even if you haven't started to build your app yet. We recommend doing so as soon as possible, so that nobody else can use the name. Note that you will need to submit the app within three months in order to keep that name reserved for your use.
 
-When you [upload your app's packages](upload-app-packages.md), the [**Package/Properties/DisplayName**](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-displayname) value must match the name that you reserved for your app. If you use Microsoft Visual Studio to create your app's package, this attribute will be filled in for you.
+When you [upload your app's packages](upload-app-packages.md), the [**Package/Properties/DisplayName**](/uwp/schemas/appxpackage/uapmanifestschema/element-displayname) value must match the name that you reserved for your app. If you use Microsoft Visual Studio to create your app's package, this attribute will be filled in for you.
 
 > [!IMPORTANT]
 > You can reserve additional names for an app, and you may choose to use one of those in the published version of your app instead of the one you reserve when you first create your app in Partner Center. However, be aware that the first name you enter here will be used in some of your app's [identity details](view-app-identity-details.md), such as the **Package Family Name (PFN)**. These values may be visible to some users, and cannot be changed, so make sure that the name you reserve is appropriate for this use.
@@ -32,7 +32,7 @@ Reserving a name is the first step in creating an app in Partner Center.
 The name is now reserved for you, and you can start working on your [submission](app-submissions.md) whenever you're ready. 
 
 > [!NOTE]
-> You might find that you can't reserve a name, even though you don't see any apps listed by that name in the Microsoft Store. This is usually because another developer has reserved the name for their app but hasn't submitted it yet. If you are unable to reserve a name for which you hold the trademark or other legal right, or if you see another app in the Microsoft Store using that name, [contact Microsoft](http://go.microsoft.com/fwlink/p/?LinkId=233777).
+> You might find that you can't reserve a name, even though you don't see any apps listed by that name in the Microsoft Store. This is usually because another developer has reserved the name for their app but hasn't submitted it yet. If you are unable to reserve a name for which you hold the trademark or other legal right, or if you see another app in the Microsoft Store using that name, [contact Microsoft](https://www.microsoft.com/info/cpyrtInfrg.html).
 
 After you reserve a name, you have three months to submit that app. If you don't submit it within three months, the name reservation will expire, and another developer may be able to use that name for an app. You may encounter an error if you try to submit an app under a name which you have let expire.
 
@@ -63,7 +63,3 @@ For more info, see [Manage app names](manage-app-names.md).
  
 
  
-
-
-
-

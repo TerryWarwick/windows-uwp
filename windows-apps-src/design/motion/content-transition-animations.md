@@ -17,7 +17,7 @@ ms.localizationpriority: medium
 
 Content transition animations let you change the content of an area of the screen while keeping the container or background constant. New content fades in. If there is existing content to be replaced, that content fades out.
 
-> **Important APIs**: [**ContentThemeTransition class (XAML)**](https://msdn.microsoft.com/library/windows/apps/br243104)
+> **Important APIs**: [**ContentThemeTransition class (XAML)**](/uwp/api/windows.ui.xaml.media.animation.contentthemetransition)
 
 ## Do's and don'ts
 
@@ -35,15 +35,11 @@ Content transition animations let you change the content of an area of the scree
 ## Related articles
 
 **For developers (XAML)**
-* [Animations overview](https://msdn.microsoft.com/library/windows/apps/mt187350)
-* [Animating content transitions](https://msdn.microsoft.com/library/windows/apps/xaml/jj649426)
-* [Quickstart: Animating your UI using library animations](https://msdn.microsoft.com/library/windows/apps/xaml/hh452703)
-* [**ContentThemeTransition class**](https://msdn.microsoft.com/library/windows/apps/br243104)
+* [Animations overview](./xaml-animation.md)
+* [Animating content transitions](/previous-versions/windows/apps/jj649426(v=win.10))
+* [Quickstart: Animating your UI using library animations](/previous-versions/windows/apps/hh452703(v=win.10))
+* [**ContentThemeTransition class**](/uwp/api/windows.ui.xaml.media.animation.contentthemetransition)
 
  
 
  
-
-
-
-

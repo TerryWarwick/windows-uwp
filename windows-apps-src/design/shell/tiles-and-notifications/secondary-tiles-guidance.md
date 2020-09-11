@@ -1,6 +1,6 @@
 ---
-Description: Learn about when and where you should use secondary tiles in your UWP app.
-title: Secondary tiles
+Description: Learn about when and where you should use secondary tiles in your Windows app.
+title: Secondary tiles design guidance
 label: Secondary tiles
 template: detail.hbs
 ms.date: 05/25/2017
@@ -43,6 +43,6 @@ Consider the following recommendations when enabling secondary tiles in your app
 
 * [Secondary tiles overview](secondary-tiles.md)
 * [Pin secondary tiles](secondary-tiles-pinning.md)
-* [Tile assets](app-assets.md)
+* [Tile assets](../../style/app-icons-and-logos.md)
 * [Tile content documentation](create-adaptive-tiles.md)
 * [Send a local tile notification](sending-a-local-tile-notification.md)

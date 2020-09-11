@@ -1266,7 +1266,7 @@ The following tables show the audio codec and format support for each device fam
 
  
 
-### XBox
+### Xbox
 
 <table>
 <colgroup>
@@ -2463,7 +2463,7 @@ The following tables show the video codec and format support for each device fam
 
  
 
-### XBox
+### Xbox
 
 <table>
 <colgroup>
@@ -2751,4 +2751,4 @@ The following tables show the video codec and format support for each device fam
 <sup>2</sup> DNG images with a non-RAW embedded preview are supported.  
 <sup>3</sup> Only certain camera RAW formats are supported.  
 
-For more information on image codecs, see [Native WIC Codecs](https://msdn.microsoft.com/library/windows/desktop/gg430027.aspx).
+For more information on image codecs, see [Native WIC Codecs](/windows/desktop/wic/native-wic-codecs).

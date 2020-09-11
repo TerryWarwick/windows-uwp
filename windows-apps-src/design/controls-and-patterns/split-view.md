@@ -17,7 +17,7 @@ ms.localizationpriority: medium
 
 A split view control has an expandable/collapsible pane and a content area.
 
-> **Important APIs**: [SplitView class](https://msdn.microsoft.com/library/windows/apps/dn864360)
+> **Important APIs**: [SplitView class](/uwp/api/Windows.UI.Xaml.Controls.SplitView)
 
 Here is an example of the Microsoft Edge app using SplitView to show its Hub.
 
@@ -53,7 +53,7 @@ If you'd like to build a navigation menu with an expand/collapse button and a li
 <table>
 <th align="left">XAML Controls Gallery<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p>If you have the <strong style="font-weight: semi-bold">XAML Controls Gallery</strong> app installed, click here to <a href="xamlcontrolsgallery:/item/SplitView">open the app and see the SplitView in action</a>.</p>
     <ul>

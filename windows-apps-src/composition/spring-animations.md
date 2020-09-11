@@ -1,6 +1,6 @@
 ---
 title: Spring animations
-description: Learn how to use spring natural motion animations.
+description: Learn how to create spring motion experiences in your apps by using the NaturalMotionAnimation APIs.
 ms.date: 10/10/2017
 ms.topic: article
 keywords: windows 10, uwp, animation
@@ -86,12 +86,12 @@ private void Button_Clicked(object sender, RoutedEventArgs e)
  {
  _expanded = true;
  _propSet.InsertBoolean("expanded", true);
- _springAnimation.InitialValueExpression[“FinalValue”] = “this.StartingValue + 250”;
+ _springAnimation.InitialValueExpression["FinalValue"] = "this.StartingValue + 250";
  } else
  {
  _expanded = false;
  _propSet.InsertBoolean("expanded", false);
-_springAnimation.InitialValueExpression[“FinalValue”] = “this.StartingValue - 250”;
+_springAnimation.InitialValueExpression["FinalValue"] = "this.StartingValue - 250";
  }
  _naviPane.StartAnimation("Offset.X", _springAnimation);
 }

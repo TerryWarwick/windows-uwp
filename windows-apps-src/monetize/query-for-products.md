@@ -2,7 +2,7 @@
 ms.assetid: D1F233EC-24B5-4F84-A92F-2030753E608E
 description: Use this method in the Microsoft Store collection API to get all the products that a customer owns for apps that are associated with your Azure AD client ID. You can scope your query to a particular product, or use other filters.
 title: Query for products
-ms.date: 03/16/2018
+ms.date: 03/19/2018
 ms.topic: article
 keywords: windows 10, uwp, Microsoft Store collection API, view products
 ms.localizationpriority: medium
@@ -47,13 +47,13 @@ For more information, see [Manage product entitlements from a service](view-and-
 
 | Parameter         | Type         | Description         | Required |
 |-------------------|--------------|---------------------|----------|
-| beneficiaries     | UserIdentity | A UserIdentity object that represents the user being queried for products. For more information, see the table below.    | Yes      |
+| beneficiaries     | list&lt;UserIdentity&gt; | A list of UserIdentity objects that represent the users being queried for products. For more information, see the table below.    | Yes      |
 | continuationToken | string       | If there are multiple sets of products, the response body returns a continuation token when the page limit is reached. Provide that continuation token here in subsequent calls to retrieve remaining products.       | No       |
 | maxPageSize       | number       | The maximum number of products to return in one response. The default and maximum value is 100.                 | No       |
 | modifiedAfter     | datetime     | If specified, the service only returns products that have been modified after this date.        | No       |
 | parentProductId   | string       | If specified, the service only returns add-ons that correspond to the specified app.      | No       |
 | productSkuIds     | list&lt;ProductSkuId&gt; | If specified, the service only returns products applicable to the provided product/SKU pairs. For more information, see the table below.      | No       |
-| productTypes      | list&lt;string&gt;       | Specifies which products types to return in the query results. Supported product types are **Application**, **Durable**, and **UnmanagedConsumable**.     | Yes       |
+| productTypes      | list&lt;string&gt;       | Specifies which products types to return in the query results. Supported product types are **Application**, **Durable**, **Game**, and **UnmanagedConsumable**.     | Yes       |
 | validityType      | string       | When set to **All**, all products for a user will be returned, including expired items. When set to **Valid**, only products that are valid at this point in time are returned (that is, they have an active status, start date &lt; now, and end date is &gt; now). | No       |
 
 

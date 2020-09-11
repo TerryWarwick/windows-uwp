@@ -2,22 +2,24 @@
 ms.assetid: 4e7c2388-b94e-4828-a104-14fa33f6eb2d
 description: Learn how to use the AdControl class to display banner ads in a XAML app for Windows 10 (UWP).
 title: AdControl in XAML and .NET
-ms.date: 03/22/2018
+ms.date: 02/18/2020
 ms.topic: article
 keywords: windows 10, uwp, ads, advertising, AdControl, ad control, XAML, .net, walkthrough
 ms.localizationpriority: medium
 ---
 # AdControl in XAML and .NET
 
+>[!WARNING]
+> As of June 1, 2020, the Microsoft Ad Monetization platform for Windows UWP apps will be shut down. [Learn more](https://social.msdn.microsoft.com/Forums/windowsapps/en-US/db8d44cb-1381-47f7-94d3-c6ded3fea36f/microsoft-ad-monetization-platform-shutting-down-june-1st?forum=aiamgr)
 
-This walkthrough shows how to use the [AdControl](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol) class to display banner ads in a Universal Windows Platform (UWP) XAML app for Windows 10 that is implemented using C#.
+This walkthrough shows how to use the [AdControl](/uwp/api/microsoft.advertising.winrt.ui.adcontrol) class to display banner ads in a Universal Windows Platform (UWP) XAML app for Windows 10 that is implemented using C#.
 
 > [!NOTE]
-> The Microsoft Advertising SDK also supports XAML apps that are implemented using C++. For a complete sample project, see the [advertising samples on GitHub](http://aka.ms/githubads).
+> The Microsoft Advertising SDK also supports XAML apps that are implemented using C++. For a complete sample project, see the [advertising samples on GitHub](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Advertising).
 
 ## Prerequisites
 
-* Install the [Microsoft Advertising SDK](http://aka.ms/ads-sdk-uwp) with Visual Studio 2015 or a later release of Visual Studio. For installation instructions, see [this article](install-the-microsoft-advertising-libraries.md).
+* Install the [Microsoft Advertising SDK](https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftAdvertisingSDK) with Visual Studio 2015 or a later release of Visual Studio. For installation instructions, see [this article](install-the-microsoft-advertising-libraries.md).
 
 ## Integrate a banner ad into your app
 
@@ -69,7 +71,7 @@ This walkthrough shows how to use the [AdControl](https://docs.microsoft.com/uwp
     </Page>
     ```
 
-5. In the **Grid** tag, add the code for the **AdControl**. Assign the  [AdUnitId](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol.adunitid) and [ApplicationId](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol.applicationid) properties to the [test ad unit values](set-up-ad-units-in-your-app.md#test-ad-units). Also adjust the **Height** and **Width** of the control so it is one of the [supported ad sizes for banner ads](supported-ad-sizes-for-banner-ads.md).
+5. In the **Grid** tag, add the code for the **AdControl**. Assign the  [AdUnitId](/uwp/api/microsoft.advertising.winrt.ui.adcontrol.adunitid) and [ApplicationId](/uwp/api/microsoft.advertising.winrt.ui.adcontrol.applicationid) properties to the [test ad unit values](set-up-ad-units-in-your-app.md#test-ad-units). Also adjust the **Height** and **Width** of the control so it is one of the [supported ad sizes for banner ads](supported-ad-sizes-for-banner-ads.md).
 
     > [!NOTE]
     > Every **AdControl** has a corresponding *ad unit* that is used by our services to serve ads to the control, and every ad unit consists of an *ad unit ID* and *application ID*. In these steps, you assign test ad unit ID and application ID values to your control. These test values can only be used in a test version of your app. Before you publish your app to the Store, you must [replace these test values with live values](#release) from Partner Center.
@@ -143,5 +145,5 @@ You can use multiple **AdControl** objects in a single app (for example, each pa
 
 * [Guidelines for banner ads](ui-and-user-experience-guidelines.md#guidelines-for-banner-ads)
 * [Error handling in XAML/C# walkthrough](error-handling-in-xamlc-walkthrough.md).
-* [Advertising samples on GitHub](http://aka.ms/githubads)
+* [Advertising samples on GitHub](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Advertising)
 * [Set up ad units for your app](set-up-ad-units-in-your-app.md)

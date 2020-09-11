@@ -1,6 +1,6 @@
 ---
 title: Create a UWP game in MonoGame 2D
-description: A simple UWP game for the Microsoft Store, written in C# and MonoGame
+description: Follow this tutorial to create a basic UWP game for the Microsoft Store, written in C# and MonoGame.
 ms.date: 03/06/2017
 ms.topic: article
 keywords: windows 10, uwp
@@ -19,9 +19,9 @@ ms.localizationpriority: medium
 MonoGame is a lightweight game development framework. This tutorial will teach you the basics of game development in MonoGame, including how to load content, draw sprites, animate them, and handle user input. Some more advanced concepts like collision detection and scaling up for high-DPI screens are also discussed. This tutorial takes 30-60 minutes.
 
 ## Prerequisites
-+	Windows 10 and Microsoft Visual Studio 2017.  [Click here to learn how to get set up with Visual Studio](https://docs.microsoft.com/en-us/windows/uwp/get-started/get-set-up).
-+ The .NET desktop development framework. If you don't already have this installed, you can get it by re-running the Visual Studio installer and modifying your installation of Visual Studio 2017.
-+	Basic knowledge of C# or a similar object-oriented programming language. [Click here to learn how to get started with C#](https://docs.microsoft.com/en-us/windows/uwp/get-started/create-a-hello-world-app-xaml-universal).
++	Windows 10 and Microsoft Visual Studio 2019.  [Click here to learn how to get set up with Visual Studio](./get-set-up.md).
++ The .NET desktop development framework. If you don't already have this installed, you can get it by re-running the Visual Studio installer and modifying your installation of Visual Studio 2019.
++	Basic knowledge of C# or a similar object-oriented programming language. [Click here to learn how to get started with C#](./create-a-hello-world-app-xaml-universal.md).
 +	Familiarity with basic computer science concepts like classes, methods, and variables is a plus.
 
 ## Why MonoGame?
@@ -30,16 +30,16 @@ There’s no shortage of options when it comes to game development environments.
 ## Get the code
 If you don’t feel like working through the tutorial step-by-step and just want to see MonoGame in action, [click here to get the finished app](https://github.com/Microsoft/Windows-appsample-get-started-mg2d).
 
-Open the project in Visual Studio 2017, and press **F5** to run the sample. The first time you do this may take a while, as Visual Studio needs to fetch any NuGet packages that are missing from your installation.
+Open the project in Visual Studio 2019, and press **F5** to run the sample. The first time you do this may take a while, as Visual Studio needs to fetch any NuGet packages that are missing from your installation.
 
 If you’ve done this, skip the next section about setting up MonoGame to see a step-by-step walkthrough of the code.
 
 **Note:** The game created in this sample is not meant to be complete (or any fun at all). Its only purpose is to demonstrate all the core concepts of 2D development in MonoGame. Feel free to use this code and make something much better—or just start from scratch after you’ve mastered the basics!
 
 ## Set up MonoGame project
-1. Install **MonoGame 3.6** for Visual Studio from [MonoGame.net](http://www.monogame.net/)
+1. Install **MonoGame 3.6** for Visual Studio from [MonoGame.net](https://www.monogame.net/)
 
-2. Start Visual Studio 2017.
+2. Start Visual Studio 2019.
 
 3. Go to **File -> New -> Project**
 
@@ -61,6 +61,7 @@ Now you’ve created the project, open the **Game1.cs** file from the **Solution
 **protected override void UnloadContent()** This method is used to unload non content-manager content. We don’t use this one at all.
 
 **protected override void Update(GameTime gameTime)** This method is called once for every cycle of the game loop. Here we update the states of any object or variable used in the game. This includes things like an object’s position, speed, or color. This is also where user input is handled. In short, this method handles every part of the game logic except drawing objects on screen.
+
 **protected override void Draw(GameTime gameTime)** This is where objects are drawn on the screen, using the positions given by the Update method.
 
 ## Draw a sprite
@@ -248,7 +249,7 @@ The **Update** SpriteClass method is called in the **Update** method of Game1.cs
 The **Draw** method is called in the **Draw** method of Game1.cs, and is used to draw the sprite in the game window.
 
 ## User input and animation
-Now we have the SpriteClass built, we’ll use it to create two new game objects, The first is an avatar that the player can control with the arrow keys and the space bar. The second is an object that the player must avoid
+Now we have the SpriteClass built, we’ll use it to create two new game objects, The first is an avatar that the player can control with the arrow keys and the space bar. The second is an object that the player must avoid.
 
 ### 1. Get the textures
 For the player’s avatar we’re going to use Microsoft’s very own ninja cat, riding on his trusty t-rex. [Click here to download the image](https://github.com/Microsoft/Windows-appsample-get-started-mg2d/blob/master/MonoGame2D/Content/ninja-cat-dino.png).
@@ -559,7 +560,7 @@ if (!gameStarted)
 
 First we create two Strings, one for each line of text we want to draw. Next, we measure the width and height of each line when printed, using the **SpriteFont.MeasureString(String)** method. This gives us the size as a **Vector2** object, with the **X** property containing its width, and **Y** its height.
 
-Finally, we draw each line. To center the text horizontally, we make the **X** value of it’s position vector equal to **screenWidth / 2 - textSize.X / 2**
+Finally, we draw each line. To center the text horizontally, we make the **X** value of its position vector equal to **screenWidth / 2 - textSize.X / 2**.
 
 **Challenge:** how would you change the procedure above to center the text vertically as well as horizontally?
 
@@ -570,7 +571,12 @@ Try running the game. Do you see the intro splash screen? Does the score count u
 ## Collision detection
 So we have a broccoli that follows you around, and we have a score that ticks up each time a new one spawns—but as it is there is no way to actually lose this game. We need a way to know if the dino and broccoli sprites collide, and if when they do, to declare the game over.
 
-### 1. Rectangular collision
+### 1. Get the textures
+The last image we need, is one for “game over”. [Click here to download the image](https://github.com/Microsoft/Windows-appsample-get-started-mg2d/blob/master/MonoGame2D/Content/game-over.png).
+
+Just as before with the green rectangle, ninja-cat and broccoli images, add this image to **Content.mgcb** via the **MonoGame Pipeline**, naming it “game-over.png”.
+
+### 2. Rectangular collision
 When detecting collisions in a game, objects are often simplified to reduce the complexity of the math involved. We are going to treat both the player avatar and broccoli obstacle as rectangles for the purpose of detecting collision between them.
 
 Open **SpriteClass.cs** and add a new class variable:
@@ -596,7 +602,7 @@ public bool RectangleCollision(SpriteClass otherSprite)
 
 This method detects if two rectangular objects have collided. The algorithm works by testing to see if there is a gap between any of the sides of the rectangles. If there is any gap, there is no collision—if no gap exists, there must be a collision.
 
-### 2. Load new textures
+### 3. Load new textures
 
 Then, open **Game1.cs** and add two new class variables, one to store the game over sprite texture, and a Boolean to track the game’s state:
 
@@ -617,7 +623,7 @@ Finally, load the texture into **gameOverTexture** in the **LoadContent** method
 gameOverTexture = Content.Load<Texture2D>("game-over");
 ```
 
-### 3. Implement “game over” logic
+### 4. Implement “game over” logic
 Add this code to the **Update** method, just after the **KeyboardHandler** method is called:
 
 ```CSharp
@@ -641,7 +647,7 @@ if (dino.RectangleCollision(broccoli)) gameOver = true;
 
 This calls the **RectangleCollision** method we created in **SpriteClass**, and flags the game as over if it returns true.
 
-### 4. Add user input for resetting the game
+### 5. Add user input for resetting the game
 Add this code to the **KeyboardHandler** method, to allow the user to reset the game if they press Enter:
 
 ```CSharp
@@ -652,7 +658,7 @@ if (gameOver && state.IsKeyDown(Keys.Enter))
 }
 ```
 
-### 5. Draw game over splash and text
+### 6. Draw game over splash and text
 Finally, add this code to the Draw method, just after the first call of **spriteBatch.Draw** (this should be the call that draws the grass texture).
 
 ```CSharp
@@ -680,10 +686,10 @@ And we’re done! Try running the game again. If you followed the steps above, t
 ## Publish to the Microsoft Store
 Because we built this game as a UWP app, it is possible to publish this project to the Microsoft Store. There are a few steps to the process.
 
-You must be [registered](https://developer.microsoft.com/en-us/store/register) as a Windows Developer.
+You must be [registered](https://developer.microsoft.com/store/register) as a Windows Developer.
 
-You must use the [app submission checklist](https://docs.microsoft.com/en-us/windows/uwp/publish/app-submissions).
+You must use the [app submission checklist](../publish/app-submissions.md).
 
-The app must be submitted for [certification](https://docs.microsoft.com/en-us/windows/uwp/publish/the-app-certification-process).
+The app must be submitted for [certification](../publish/the-app-certification-process.md).
 
-For more details, see [Publishing your UWP app](https://developer.microsoft.com/en-us/store/publish-apps).
+For more details, see [Publishing your UWP app](../publish/index.md).

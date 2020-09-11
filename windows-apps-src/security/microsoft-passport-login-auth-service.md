@@ -45,7 +45,7 @@ In this exercise you will be starting with the Windows Hello application built i
     }
     ```
 
-    You may have noticed the commented out list of PassportDevices. This is a modification you will need to make to an existing user model in your current implementation. The list of PassportDevices will contain a deviceID, the public key made from Windows Hello, and a [**KeyCredentialAttestationResult**](https://msdn.microsoft.com/library/windows/apps/dn973034). For this hands on lab you will need to implement the keyAttestationResult as they are only provided by Windows Hello on devices that have a TPM (Trusted Platform Modules) chip. The **KeyCredentialAttestationResult** is a combination of multiple properties and would need to be split in order to save and load them with a database.
+    You may have noticed the commented out list of PassportDevices. This is a modification you will need to make to an existing user model in your current implementation. The list of PassportDevices will contain a deviceID, the public key made from Windows Hello, and a [**KeyCredentialAttestationResult**](/uwp/api/Windows.Security.Credentials.KeyCredentialAttestationResult). For this hands on lab you will need to implement the keyAttestationResult as they are only provided by Windows Hello on devices that have a TPM (Trusted Platform Modules) chip. The **KeyCredentialAttestationResult** is a combination of multiple properties and would need to be split in order to save and load them with a database.
 
 -   Create a new class in the AuthService folder called "PassportDevice.cs". This is the model for the Windows Hello devices as discussed above. Change the class definition to be public and add the following properties.
 
@@ -655,7 +655,7 @@ In this exercise you will be changing the client side views and helper classes f
             //If it does here you would Request a challenge from the Server. The client would sign this challenge and the server
             //would check the signed challenge. If it is correct it would allow the user access to the backend.
             //You would likely make a new method called RequestSignAsync to handle all this
-            //e.g. RequestSignAsync(openKeyResult);
+            //for example, RequestSignAsync(openKeyResult);
             //Refer to the second Windows Hello sample for information on how to do this.
 
             //For this sample there is not concept of a server implemented so just return true.
@@ -1133,7 +1133,7 @@ In this exercise you will be changing the client side views and helper classes f
             //If it does here you would Request a challenge from the Server. The client would sign this challenge and the server
             //would check the signed challenge. If it is correct it would allow the user access to the backend.
             //You would likely make a new method called RequestSignAsync to handle all this
-            //e.g. RequestSignAsync(openKeyResult);
+            //for example, RequestSignAsync(openKeyResult);
             //Refer to the second Windows Hello sample for information on how to do this.
 
             return await RequestSignAsync(account.UserId, openKeyResult);

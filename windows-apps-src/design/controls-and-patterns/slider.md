@@ -1,6 +1,6 @@
 ---
-Description: Lets the user set a value in a given range.
 title: Sliders
+description: Learn how to implement a Windows UI Library slider control that lets the user select from a range of values by moving a thumb control along a track.
 ms.assetid: 7EC7EA33-BE7E-4FD5-B205-B8FA7B729ACC
 label: Sliders
 template: detail.hbs
@@ -15,14 +15,17 @@ ms.localizationpriority: medium
 ---
 # Sliders
 
- 
-
 A slider is a control that lets the user select from a range of values by moving a thumb control along a track.
-
-> **Important APIs**: [Slider class](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.slider.aspx), [Value property](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.primitives.rangebase.value.aspx), [ValueChanged event](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.primitives.rangebase.valuechanged.aspx)
 
 ![A slider control](images/controls/slider.png)
 
+**Get the Windows UI Library**
+
+|  |  |
+| - | - |
+| ![WinUI logo](images/winui-logo-64x64.png) | Windows UI Library 2.2 or later includes a new template for this control that uses rounded corners. For more info, see [Corner radius](../style/rounded-corner.md). WinUI is a NuGet package that contains new controls and UI features for Windows apps. For more info, including installation instructions, see [Windows UI Library](/uwp/toolkits/winui/). |
+
+> **Platform APIs**: [Slider class](/uwp/api/windows.ui.xaml.controls.slider), [Value property](/uwp/api/windows.ui.xaml.controls.primitives.rangebase.value), [ValueChanged event](/uwp/api/windows.ui.xaml.controls.primitives.rangebase.valuechanged)
 
 ## Is this the right control?
 
@@ -34,27 +37,27 @@ Don't use a slider for binary settings. Use a [toggle switch](toggles.md) instea
 
 Here are some additional factors to consider when deciding whether to use a slider:
 
--   **Does the setting seem like a relative quantity?** If not, use [radio buttons](radio-button.md) or a [list box](lists.md).
--   **Is the setting an exact, known numeric value?** If so, use a numeric [text box](text-box.md).
--   **Would a user benefit from instant feedback on the effect of setting changes?** If so, use a slider. For example, users can choose a color more easily by immediately seeing the effect of changes to hue, saturation, or luminosity values.
--   **Does the setting have a range of four or more values?** If not, use [radio buttons](radio-button.md).
--   **Can the user change the value?** Sliders are for user interaction. If a user can't ever change the value, use read-only text instead.
+- **Does the setting seem like a relative quantity?** If not, use [radio buttons](radio-button.md) or a [list box](lists.md).
+- **Is the setting an exact, known numeric value?** If so, use a numeric [text box](text-box.md).
+- **Would a user benefit from instant feedback on the effect of setting changes?** If so, use a slider. For example, users can choose a color more easily by immediately seeing the effect of changes to hue, saturation, or luminosity values.
+- **Does the setting have a range of four or more values?** If not, use [radio buttons](radio-button.md).
+- **Can the user change the value?** Sliders are for user interaction. If a user can't ever change the value, use read-only text instead.
 
 If you are deciding between a slider and a numeric text box, use a numeric text box if:
 
--   Screen space is tight.
--   The user is likely to prefer using the keyboard.
+- Screen space is tight.
+- The user is likely to prefer using the keyboard.
 
 Use a slider if:
 
--   Users will benefit from instant feedback.
+- Users will benefit from instant feedback.
 
 ## Examples
 
 <table>
 <th align="left">XAML Controls Gallery<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p>If you have the <strong style="font-weight: semi-bold">XAML Controls Gallery</strong> app installed, click here to <a href="xamlcontrolsgallery:/item/Slider">open the app and see the Slider in action</a>.</p>
     <ul>
@@ -64,10 +67,6 @@ Use a slider if:
 </td>
 </tr>
 </table>
-
-A slider to control the volume on Windows Phone.
-
-![A slider to control the volume on Windows Phone](images/control-examples/slider-phone.png)
 
 A slider to change text size in Windows display settings.
 
@@ -94,7 +93,7 @@ volumeSlider.ValueChanged += Slider_ValueChanged;
 stackPanel1.Children.Add(volumeSlider);
 ```
 
-You get and set the value of the slider from the [Value](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.primitives.rangebase.value.aspx) property. To respond to value changes, you can use data binding to bind to the Value property, or handle the [ValueChanged](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.primitives.rangebase.valuechanged.aspx) event.
+You get and set the value of the slider from the [Value](/uwp/api/windows.ui.xaml.controls.primitives.rangebase.value) property. To respond to value changes, you can use data binding to bind to the Value property, or handle the [ValueChanged](/uwp/api/windows.ui.xaml.controls.primitives.rangebase.valuechanged) event.
 
 ```csharp
 private void Slider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
@@ -170,7 +169,7 @@ The range direction is the direction you move the slider when you slide it from 
 
     -   If you need a value label, display it below the slider.
     -   Center the text relative to the control and include the units (such as pixels).
-    -   Since the slider’s thumb is covered during scrubbing, consider showing the current value some other way, with a label or other visual. A slider setting text size could render some sample text of the right size beside the slider.
+    -   Since the slider's thumb is covered during scrubbing, consider showing the current value some other way, with a label or other visual. A slider setting text size could render some sample text of the right size beside the slider.
 
 ### Appearance and interaction
 
@@ -178,7 +177,7 @@ A slider is composed of a track and a thumb. The track is a bar (which can optio
 
 A slider has a large touch target. To maintain touch accessibility, a slider should be positioned far enough away from the edge of the display.
 
-When you’re designing a custom slider, consider ways to present all the necessary info to the user with as little clutter as possible. Use a value label if a user needs to know the units in order to understand the setting; find creative ways to represent these values graphically. A slider that controls volume, for example, could display a speaker graphic without sound waves at the minimum end of the slider, and a speaker graphic with sound waves at the maximum end.
+When you're designing a custom slider, consider ways to present all the necessary info to the user with as little clutter as possible. Use a value label if a user needs to know the units in order to understand the setting; find creative ways to represent these values graphically. A slider that controls volume, for example, could display a speaker graphic without sound waves at the minimum end of the slider, and a speaker graphic with sound waves at the maximum end.
 
 ## Get the sample code
 
@@ -186,4 +185,4 @@ When you’re designing a custom slider, consider ways to present all the necess
 
 ## Related topics
 - [Toggle switches](toggles.md)
-- [Slider class](https://msdn.microsoft.com/library/windows/apps/br209614)
+- [Slider class](/uwp/api/Windows.UI.Xaml.Controls.Slider)

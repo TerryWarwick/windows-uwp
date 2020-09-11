@@ -1,17 +1,19 @@
 ---
-title: Creating a Windows Runtime component in C++/CX, and calling it from JavaScript or C#
-description: This walkthrough shows how to create a basic Windows Runtime Component DLL that's callable from JavaScript, C#, or Visual Basic.
+title: Walkthrough of creating a C++/CX Windows Runtime component, and calling it from JavaScript or C#
+description: This walkthrough shows how to create a basic Windows Runtime component DLL that's callable from JavaScript, C#, or Visual Basic.
 ms.assetid: 764CD9C6-3565-4DFF-88D7-D92185C7E452
 ms.date: 05/14/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ---
-# Walkthrough: Creating a Windows Runtime component in C++/CX, and calling it from JavaScript or C#
-> [!NOTE]
-> This topic exists to help you maintain your C++/CX application. But we recommend that you use [C++/WinRT](../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md) for new applications. C++/WinRT is an entirely standard modern C++17 language projection for Windows Runtime (WinRT) APIs, implemented as a header-file-based library, and designed to provide you with first-class access to the modern Windows API. To learn how to create a Windows Runtime Component using C++/WinRT, see [Author events in C++/WinRT](../cpp-and-winrt-apis/author-events.md).
 
-This walkthrough shows how to create a basic Windows Runtime Component DLL that's callable from JavaScript, C#, or Visual Basic. Before you begin this walkthrough, make sure that you understand concepts such as the Abstract Binary Interface (ABI), ref classes, and the Visual C++ Component Extensions that make working with ref classes easier. For more information, see [Creating Windows Runtime Components in C++](creating-windows-runtime-components-in-cpp.md) and [Visual C++ Language Reference (C++/CX)](https://msdn.microsoft.com/library/windows/apps/xaml/hh699871.aspx).
+# Walkthrough of creating a C++/CX Windows Runtime component, and calling it from JavaScript or C#
+
+> [!NOTE]
+> This topic exists to help you maintain your C++/CX application. But we recommend that you use [C++/WinRT](../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md) for new applications. C++/WinRT is an entirely standard modern C++17 language projection for Windows Runtime (WinRT) APIs, implemented as a header-file-based library, and designed to provide you with first-class access to the modern Windows API. To learn how to create a Windows Runtime component using C++/WinRT, see [Windows Runtime components with C++/WinRT](./create-a-windows-runtime-component-in-cppwinrt.md).
+
+This walkthrough shows how to create a basic Windows Runtime component DLL that's callable from JavaScript, C#, or Visual Basic. Before you begin this walkthrough, make sure that you understand concepts such as the Abstract Binary Interface (ABI), ref classes, and the Visual C++ Component Extensions that make working with ref classes easier. For more information, see [Windows Runtime components with C++/CX](creating-windows-runtime-components-in-cpp.md) and [Visual C++ Language Reference (C++/CX)](/cpp/cppcx/visual-c-language-reference-c-cx).
 
 ## Creating the C++ component DLL
 In this example, we create the component project first, but you could create the JavaScript project first. The order doesn’t matter.
@@ -28,7 +30,7 @@ Notice that the main class of the component contains examples of property and me
 4. Choose the **OK** button.
 
 ## **To add an activatable class to the component**
-An activatable class is one that client code can create by using a **new** expression (**New** in Visual Basic, or **ref new** in C++). In your component, you declare it as **public ref class sealed**. In fact, the Class1.h and .cpp files already have a ref class. You can change the name, but in this example we’ll use the default name—Class1. You can define additional ref classes or regular classes in your component if they are required. For more information about ref classes, see [Type System (C++/CX)](https://msdn.microsoft.com/library/windows/apps/hh755822.aspx).
+An activatable class is one that client code can create by using a **new** expression (**New** in Visual Basic, or **ref new** in C++). In your component, you declare it as **public ref class sealed**. In fact, the Class1.h and .cpp files already have a ref class. You can change the name, but in this example we’ll use the default name—Class1. You can define additional ref classes or regular classes in your component if they are required. For more information about ref classes, see [Type System (C++/CX)](/cpp/cppcx/type-system-c-cx).
 
 Add these \#include directives to Class1.h:
 
@@ -109,7 +111,7 @@ IVector<double>^ Class1::ComputeResult(double input)
     float numbers[] = { 1.0, 10.0, 60.0, 100.0, 600.0, 10000.0 };
     array_view<float, 1> logs(6, numbers);
 
-    // See http://msdn.microsoft.com/en-us/library/hh305254.aspx
+    // See http://msdn.microsoft.com/library/hh305254.aspx
     parallel_for_each(
         logs.extent,
         [=] (index<1> idx) restrict(amp)
@@ -260,15 +262,19 @@ IAsyncActionWithProgress<double>^ Class1::GetPrimesUnordered(int first, int last
 }
 ```
 
-## Creating a JavaScript client app
-If you just want to create a C# client, you can skip this section.
+## Creating a JavaScript client app (Visual Studio 2017)
+
+If you want to create a C# client, then you can skip this section.
+
+> [!NOTE]
+> Universal Windows Platform (UWP) projects are not supported in Visual Studio 2019. See [JavaScript and TypeScript in Visual Studio 2019](/visualstudio/javascript/javascript-in-vs-2019?view=vs-2019#projects). To follow along with this section, we recommend that you use Visual Studio 2017. See [JavaScript in Visual Studio 2017](/visualstudio/javascript/javascript-in-vs-2017).
 
 ### To create a JavaScript project
-1. In Solution Explorer, open the shortcut menu for the Solution node and choose **Add, New Project**.
+1. In Solution Explorer (in Visual Studio 2017; see **Note** above), open the shortcut menu for the Solution node and choose **Add, New Project**.
 
 2. Expand JavaScript (it might be nested under **Other Languages**) and choose **Blank App (Universal Windows)**.
 
-3. Accept the default name—App1—by choosing the **OK** button.
+3. Accept the default name&mdash;App1&mdash;by choosing the **OK** button.
 
 4. Open the shortcut menu for the App1 project node and choose **Set as Startup Project**.
 
@@ -415,7 +421,7 @@ function ButtonClear_Click() {
 }
 ```
 
-Add code to add the event listeners by replacing the existing call to WinJS.UI.processAll in app.onactivated in default.js with the following code that implements event registration in a then block. For a detailed explanation of this, see Create a "Hello World" app (JS).
+Add code to add the event listeners by replacing the existing call to WinJS.UI.processAll in app.onactivated in default.js with the following code that implements event registration in a then block. For a detailed explanation of this, see [Create a "Hello, World" app (JS)](../get-started/create-a-hello-world-app-js-uwp.md).
 
 ```JavaScript
 args.setPromise(WinJS.UI.processAll().then( function completed() {
@@ -601,7 +607,7 @@ Be sure to select appropriate capabilities in the package designer. You can open
 
 If your JavaScript code doesn't recognize the public properties or methods in the component, make sure that in JavaScript you are using camel casing. For example, the `ComputeResult` C++ method must be referenced as `computeResult` in JavaScript.
 
-If you remove a C++ Windows Runtime Component project from a solution, you must also manually remove the project reference from the JavaScript project. Failure to do so prevents subsequent debug or build operations. If necessary, you can then add an assembly reference to the DLL.
+If you remove a C++ Windows Runtime component project from a solution, you must also manually remove the project reference from the JavaScript project. Failure to do so prevents subsequent debug or build operations. If necessary, you can then add an assembly reference to the DLL.
 
 ## Related topics
-* [Creating Windows Runtime Components in C++/CX](creating-windows-runtime-components-in-cpp.md)
+* [Windows Runtime components with C++/CX](creating-windows-runtime-components-in-cpp.md)
